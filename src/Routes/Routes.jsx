@@ -6,7 +6,7 @@ import UsPolitics from '../Components/UsPolitics/UsPolitics'
 import Business from '../Components/Business/Business'
 import Health from '../Components/Health/Health'
 import Entertainment from '../Components/Entertainment/Entertainment'
-import Style from '../Components/Style/Style'
+import StylePage from '../Components/Style/StylePage'
 import Travel from '../Components/Travel/Travel'
 import Sports from '../Components/Sports/Sports'
 import Videos from '../Components/Videos/Videos'
@@ -34,7 +34,7 @@ const Routes = () => {
                     <Entertainment/>
                 </Route>
                 <Route exact path="/style" >
-                    <Style />
+                    <StylePage />
                 </Route>
                 <Route exact path="/travel" >
                     <Travel />
@@ -45,9 +45,9 @@ const Routes = () => {
                 <Route exact path="/videos" >
                     <Videos />
                 </Route>
-                <PrivateRoute path="/profile">
+                {/* <PrivateRoute path="/profile">
                     <Profile />
-                </PrivateRoute>
+                </PrivateRoute> */}
             </Switch>
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { CategoryWrapper, FooterContentContainer, FooterFooter, FooterWrapper, Input, LogoSection, SocialIcon, SocialMediaWrapper } from '../Styles/Footer'
+import { CategoryWrapper, FooterContentContainer, FooterFooter, FooterWrapper, Input, LogoSection, SocialIcon, SocialMediaWrapper } from '../../Styles/Footer'
 import {GrFacebook, GrInstagram, GrTwitter} from 'react-icons/gr'
 
 const Footer = () => {

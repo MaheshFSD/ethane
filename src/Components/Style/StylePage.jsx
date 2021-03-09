@@ -1,6 +1,6 @@
 import React from 'react'
-import Footer from '../Components/Footer'
-import StylePageCarousel from '../Components/StylePageCarousel'
+import Footer from '../Footer/Footer'
+import StylePageCarousel from './StylePageCarousel'
 
 const StylePage = () => {
     return (

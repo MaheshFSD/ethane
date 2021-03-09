@@ -1,15 +1,15 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import Home from '../Components/Home/Home'
-import World from '../Components/Home/World'
-import UsPolitics from '../Components/Home/UsPolitics'
-import Business from '../Components/Home/Business'
-import Health from '../Components/Home/Health'
-import Entertainment from '../Components/Home/Entertainment'
+import World from '../Components/World/World'
+import UsPolitics from '../Components/UsPolitics/UsPolitics'
+import Business from '../Components/Business/Business'
+import Health from '../Components/Health/Health'
+import Entertainment from '../Components/Entertainment/Entertainment'
 import StylePage from '../Components/Style/StylePage'
-import Travel from '../Components/Home/Travel'
-import Sports from '../Components/Home/Sports'
-import Videos from '../Components/Home/Videos'
+import Travel from '../Components/Travel/Travel'
+import Sports from '../Components/Sports/Sports'
+import Videos from '../Components/Videos/Videos'
 
 const Routes = () => {
     return (

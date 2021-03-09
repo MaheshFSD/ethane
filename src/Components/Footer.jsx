@@ -1,0 +1,159 @@
+import React from 'react'
+import { CategoryWrapper, FooterContentContainer, FooterFooter, FooterWrapper, Input, LogoSection, SocialIcon, SocialMediaWrapper } from '../Styles/Footer'
+import {GrFacebook, GrInstagram, GrTwitter} from 'react-icons/gr'
+
+const Footer = () => {
+    return (
+        <FooterWrapper>
+            <FooterContentContainer>
+                <Input placeholder="Search CNN"/>
+                <CategoryWrapper>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                    <div>
+                        <h3>US</h3>
+                        <p>Crime + Justice</p>
+                        <p>Energy + Environment</p>
+                        <p>Extreme Weather</p>
+                        <p>Space + Science</p>
+                    </div>
+                    <div>
+                        <h3>World</h3>
+                        <p>Africa</p>
+                        <p>Americas</p>
+                        <p>Asia</p>
+                        <p>Australia</p>
+                        <p>China</p>
+                        <p>Europe</p>
+                        <p>India</p>
+                        <p>Middle East</p>
+                        <p>United Kingdom</p>
+                    </div>
+                </CategoryWrapper>
+                <SocialMediaWrapper>
+                    <LogoSection>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNDMDAiIGQ9Ik0wIDUxaDUxVjBIMHoiLz48ZyBmaWxsPSIjRkZGIj48cGF0aCBkPSJNMTAuMjc3IDI1LjVhMy44ODUgMy44ODUgMCAwIDEgMy44ODUtMy44ODVoMi45NDh2LTIuMmgtMi45NzJBNi4wOTIgNi4wOTIgMCAwIDAgOC4wNTIgMjUuNWE2LjA5MiA2LjA5MiAwIDAgMCA2LjA4NiA2LjA4Nmg1LjcyMmMuMzIgMCAuNTc3LS4zMTUuNTc3LS41NzVWMTkuNzM5YzAtLjYyMS4zOS0xLjE0NS45Ny0xLjMwMy40OTUtLjEzNiAxLjE4OC4wMDIgMS42NTEuNzg5bDMuNTcgNi4xNTNjMS42ODIgMi45IDMuNDIgNS44OTggMy40NTMgNS45NTIuMTguMzA0LjQyNy40NS42NjEuMzg2YS40NS40NSAwIDAgMCAuMzItLjQ1NVYxOS43MzljMC0uNjIzLjM5LTEuMTQ3Ljk2Ny0xLjMwMy40OS0uMTM0IDEuMTgyLjAwMiAxLjY0NS43ODlsMy4zMDggNS43MDNjMS44MDggMy4xMTcgMy42NzcgNi4zNDIgMy43MTMgNi40MDIuMTguMzA0LjQyNy40NS42NjIuMzg2YS40NDguNDQ4IDAgMCAwIC4zMjEtLjQ1NFYxNi4zMzNoLTIuMjA2djguODg4cy0zLjY4Ni02LjM0OC0zLjg1NS02LjYzNmMtMi4zNC0zLjk3NC02Ljc2LTIuMzMyLTYuNzYgMS4wOXY1LjU0NnMtMy42ODUtNi4zNDgtMy44NTUtNi42MzZjLTIuMzQtMy45NzQtNi43Ni0yLjMzMi02Ljc2MSAxLjA5djkuMDlhLjYwNS42MDUgMCAwIDEtLjYwOC42MmgtMy40N2EzLjg4NSAzLjg4NSAwIDAgMS0zLjg4Ni0zLjg4NSIvPjxwYXRoIGQ9Ik00Mi41NTggMTYuMzM0VjMxLjI2YzAgLjYyMy0uMzkgMS4xNDUtLjk3IDEuMzA1YTEuMzYyIDEuMzYyIDAgMCAxLS4zNDMuMDQ0Yy0uNDQgMC0uOTQ1LS4yMTYtMS4zMDktLjgzNWwtMy43MTUtNi40MDUtMy4zMDYtNS42OThjLS4xOC0uMzA1LS40MjUtLjQ1LS42NTUtLjM4OC0uMTQ2LjA0LS4zMTguMTg0LS4zMTguNDU1VjMxLjI2YzAgLjYyMy0uMzg5IDEuMTQ1LS45NjkgMS4zMDUtLjQ5NC4xMzQtMS4xODgtLjAwMy0xLjY1Mi0uNzlsLTMuNDU0LTUuOTU2Yy0xLjczOC0yLjk5NS0zLjUzNC02LjA5NC0zLjU2OC02LjE0OC0uMTgtLjMwNi0uNDI3LS40NS0uNjYxLS4zODdhLjQ0OC40NDggMCAwIDAtLjMyLjQ1NFYzMS4wMWMwIC43NzctLjY4MSAxLjQ1Ni0xLjQ1OCAxLjQ1NmgtNS43MjJjLTMuODQxIDAtNi45NjYtMy4xMjUtNi45NjYtNi45NjVhNi45NzQgNi45NzQgMCAwIDEgNi45NjYtNi45NjdoMi45NzJ2LTIuMmgtMi45N2E5LjE2NyA5LjE2NyAwIDEgMCAwIDE4LjMzM2g1Ljc3OGMyLjE5NS4wMDEgMy42MDgtMS4yODUgMy42MDUtMy42NlYyNS43OHMzLjY4NSA2LjM0OCAzLjg1NSA2LjYzNWMyLjM0IDMuOTc0IDYuNzYxIDIuMzMyIDYuNzYxLTEuMDg5VjI1Ljc4czMuNjg1IDYuMzQ4IDMuODU0IDYuNjM1YzIuMzQgMy45NzQgNi43NiAyLjMzMiA2Ljc2LTEuMDg5VjE2LjMzNGgtMi4xOTV6Ii8+PC9nPjwvZz48L3N2Zz4K" alt="cnn-logo"/>
+                        <img src="https://verticals-static.cnn.com/style/assets/5d79c3744c3efdb10d51443a8f63a44b.svg" alt="style-logo"/>
+                    </LogoSection>
+                    <SocialIcon>
+                        <h4>FOLLOW CNN</h4>
+                        <GrFacebook style={{fontSize:'25px', margin:'0px 10px'}}/>
+                        <GrTwitter style={{fontSize:'25px', margin:'0px 10px'}}/>
+                        <GrInstagram style={{fontSize:'25px', margin:'0px 10px'}}/>
+                    </SocialIcon>
+                </SocialMediaWrapper>
+                <FooterFooter>
+                        <div>
+                            <p>Terms of Use</p>
+                            <p>Privacy Policy</p>
+                            <p>Terms of Use</p>
+                            <p>Privacy Policy</p>
+                            <p>Terms of Use</p>
+                            <p>Privacy Policy</p>
+                            <p>Terms of Use</p>
+                            <p>Privacy Policy</p>
+                            <p>Terms of Use</p>
+                            <p>Privacy Policy</p>
+                        </div>
+                        <p>© 2021 Cable News Network.A Warner Media Company.All Rights Reserved.</p>
+                        <p>CNN Sans ™ & © 2016 Cable News Network.</p>
+                </FooterFooter>            
+            </FooterContentContainer>
+           </FooterWrapper>
+    )
+}
+
+export default Footer

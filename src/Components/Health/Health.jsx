@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,7 +6,10 @@ import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
 import {Footer} from '../Footer/Footer'
 
-export const Health = () => {
+
+import { Navbar } from '../Navbar/Navbar'
+
+const Health = () => {
 
     const dispatch = useDispatch()
     const {isLoading, error, healthNews} = useSelector(state => state.health)
@@ -29,6 +31,7 @@ export const Health = () => {
 
     return isLoading ? <Loading></Loading> :(
         <>
+        <Navbar />
         <MainContainer>
             <img src="https://cdn.cnn.com/cnn/.e1mo/img/4.0/logos/cnn_health_banner.png" alt="health.logo"></img><br/>
 
@@ -455,3 +458,5 @@ const Loading = styled.div `
     100% { transform: rotate(360deg); }
     }
 `
+
+export {Health}

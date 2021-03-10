@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
 import "font-awesome/css/font-awesome.min.css";
+import { Navbar } from "../Navbar/Navbar";
 
 export const HealthLinksPage = () => {
   const { publishedAt } = useParams();
@@ -23,6 +24,8 @@ export const HealthLinksPage = () => {
 
   return (
     <>
+      <Navbar />
+
       {healthNews.map((item) =>
         publishedAt === item.publishedAt ? (
           <NewsWrapper>

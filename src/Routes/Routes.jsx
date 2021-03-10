@@ -10,6 +10,7 @@ import Travel from '../Components/Travel/Travel'
 import Sports from '../Components/Sports/Sports'
 import Videos from '../Components/Videos/Videos'
 import { Health } from '../Components/Health/Health'
+import { HealthLinksPage } from '../Components/Health/HealthLinksPage'
 
 const Routes = () => {
     return (
@@ -29,6 +30,9 @@ const Routes = () => {
                 </Route>
                 <Route exact path="/health" >
                     <Health />
+                </Route>
+                <Route exact path="/health/:publishedAt" >
+                    <HealthLinksPage />
                 </Route>
                 <Route exact path="/entertainment" >
                     <Entertainment/>

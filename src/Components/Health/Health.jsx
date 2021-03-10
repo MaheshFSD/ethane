@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
 import Footer from '../Footer/Footer'
@@ -9,6 +10,9 @@ export const Health = () => {
 
     const dispatch = useDispatch()
     const {isLoading, error, healthNews} = useSelector(state => state.health)
+    const history = useHistory()
+
+
 
     const get_data = () => {
         dispatch(get_health())
@@ -18,7 +22,11 @@ export const Health = () => {
         get_data()
     }, [dispatch])
 
-    return isLoading ? <h2>Loading data, please wait...</h2> :(
+    const goToLink = (data) => {
+        history.push(`/health/${data}`)
+    }
+
+    return isLoading ? <Loading></Loading> :(
         <>
         <MainContainer>
             <img src="https://cdn.cnn.com/cnn/.e1mo/img/4.0/logos/cnn_health_banner.png" alt="health.logo"></img><br/>
@@ -29,7 +37,7 @@ export const Health = () => {
                     <img src = "https://s.yimg.com/uu/api/res/1.2/SAxQDBbGuKj8xqKLSOyF_Q--~B/aD0zOTYzO3c9Mzk5ODthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-02/95642c30-7547-11eb-bf39-5b86f86d2c77.cf.jpg"></img>
                     {healthNews.slice(0, 6).map(item => (
                     <div key={item.id}>
-                        <p>{item.title}</p>
+                        <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                         <hr></hr>
                     </div>
                 ))}
@@ -41,7 +49,7 @@ export const Health = () => {
                     </Headings>
                     {healthNews.slice(7, 14).map(item => (
                         <div key={item.id}>
-                            <p>{item.title}</p>
+                            <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                             <hr></hr>
                         </div>
                     ))}
@@ -74,7 +82,7 @@ export const Health = () => {
                     <CommonHealthLinks>
                         {healthNews.slice(0, 9).map(item => (
                             <div key={item.id}>
-                                <p>{item.title}</p>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                                 <div></div>
                             </div>
                         ))}
@@ -89,7 +97,7 @@ export const Health = () => {
                     <CommonHealthLinks>
                         {healthNews.slice(9, 13).map(item => (
                             <div key={item.id}>
-                                <p>{item.title}</p>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                                 <div></div>
                             </div>
                         ))}
@@ -114,7 +122,7 @@ export const Health = () => {
                     <CommonHealthLinks>
                         {healthNews.slice(0, 3).map(item => (
                             <div key={item.id}>
-                                <p>{item.title}</p>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                                 <div></div>
                             </div>
                         ))}
@@ -128,7 +136,7 @@ export const Health = () => {
                     <CommonHealthLinks>
                         {healthNews.slice(4, 7).map(item => (
                             <div key={item.id}>
-                                <p>{item.title}</p>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                                 <div></div>
                             </div>
                         ))}
@@ -142,7 +150,7 @@ export const Health = () => {
                     <CommonHealthLinks>
                         {healthNews.slice(8, 11).map(item => (
                             <div key={item.id}>
-                                <p>{item.title}</p>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                                 <div></div>
                             </div>
                         ))}
@@ -162,7 +170,7 @@ export const Health = () => {
                 {healthNews.map(item => (
                     <div key={item.id}>
                         <img src = {item.urlToImage}/>
-                        <div><p>{item.title}</p></div>
+                        <div><p onClick={() => goToLink(item.publishedAt)}>{item.title}</p></div>
                     </div>
                 ))}
             </GridCardContainer>
@@ -421,5 +429,28 @@ const GridCardContainer = styled.div `
     img {
         height: 170px;
         width: 270px;
+    }
+`
+
+const Loading = styled.div `
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid grey;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    margin-top: 200px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+
+    /* Safari */
+    @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
     }
 `

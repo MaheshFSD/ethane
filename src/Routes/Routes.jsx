@@ -54,10 +54,10 @@ const Routes = () => {
         </Route>
         {/* <PrivateRoute path="/profile">
                     <Profile />
-                </PrivateRoute> */}
-      </Switch>
-    </div>
-  );
-};
+        </PrivateRoute> */}
+            </Switch>   
+        </div>
+    )
+}
 
 export { Routes };

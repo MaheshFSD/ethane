@@ -50,11 +50,13 @@ const Routes = () => {
                     <Videos />
                 </Route>
                 {/* <PrivateRoute path="/profile">
+
+        {/* <PrivateRoute path="/profile">
                     <Profile />
-                </PrivateRoute> */}
-            </Switch>
+        </PrivateRoute> */}
+            </Switch>   
         </div>
     )
 }
 
-export default Routes
+export { Routes };

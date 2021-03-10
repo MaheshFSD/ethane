@@ -4,12 +4,12 @@ import Home from '../Components/Home/Home'
 import World from '../Components/World/World'
 import UsPolitics from '../Components/UsPolitics/UsPolitics'
 import Business from '../Components/Business/Business'
-import Health from '../Components/Health/Health'
 import Entertainment from '../Components/Entertainment/Entertainment'
 import StylePage from '../Components/Style/StylePage'
 import Travel from '../Components/Travel/Travel'
 import Sports from '../Components/Sports/Sports'
 import Videos from '../Components/Videos/Videos'
+import { Health } from '../Components/Health/Health'
 
 const Routes = () => {
     return (

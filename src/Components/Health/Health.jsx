@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
 import {Footer} from '../Footer/Footer'
+import { Navbar } from '../Navbar/Navbar'
 
 export const Health = () => {
 
@@ -29,6 +30,7 @@ export const Health = () => {
 
     return isLoading ? <Loading></Loading> :(
         <>
+        <Navbar />
         <MainContainer>
             <img src="https://cdn.cnn.com/cnn/.e1mo/img/4.0/logos/cnn_health_banner.png" alt="health.logo"></img><br/>
 

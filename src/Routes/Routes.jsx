@@ -54,18 +54,10 @@ const Routes = () => {
         </Route>
         {/* <PrivateRoute path="/profile">
                     <Profile />
-<<<<<<< HEAD
-                </PrivateRoute>
+        </PrivateRoute> */}
             </Switch>   
         </div>
     )
 }
-=======
-                </PrivateRoute> */}
-      </Switch>
-    </div>
-  );
-};
->>>>>>> 4a0dc9865db0f6a42fb03caca1894a5f64181f91
 
 export { Routes };

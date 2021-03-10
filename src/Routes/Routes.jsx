@@ -48,7 +48,7 @@ const Routes = () => {
                 <PrivateRoute path="/profile">
                     <Profile />
                 </PrivateRoute>
-            </Switch>
+            </Switch>   
         </div>
     )
 }

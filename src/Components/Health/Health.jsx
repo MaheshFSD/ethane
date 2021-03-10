@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,9 +5,11 @@ import { Link, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
 import {Footer} from '../Footer/Footer'
+
+
 import { Navbar } from '../Navbar/Navbar'
 
-export const Health = () => {
+const Health = () => {
 
     const dispatch = useDispatch()
     const {isLoading, error, healthNews} = useSelector(state => state.health)
@@ -457,3 +458,5 @@ const Loading = styled.div `
     100% { transform: rotate(360deg); }
     }
 `
+
+export {Health}

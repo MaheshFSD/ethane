@@ -25,6 +25,7 @@ export const HealthLinksPage = () => {
   return (
     <>
       <Navbar />
+
       {healthNews.map((item) =>
         publishedAt === item.publishedAt ? (
           <NewsWrapper>

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
-import Footer from '../Footer/Footer'
+import {Footer} from '../Footer/Footer'
 
 export const Health = () => {
 
@@ -455,5 +455,3 @@ const Loading = styled.div `
     100% { transform: rotate(360deg); }
     }
 `
-export { Health };
-

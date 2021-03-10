@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Sports = () => {
-    return (
-        <div>
-            Hello Sports
-        </div>
-    )
-}
+  return <div>Hello Sports</div>;
+};
 
-export default Sports
+export { Sports };

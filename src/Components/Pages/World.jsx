@@ -3,6 +3,7 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { gitHubUserSearch } from "../../Redux/world/action";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 const World = () => {
   const dispatch = useDispatch();
 

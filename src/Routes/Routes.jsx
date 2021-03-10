@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import Home from '../Components/Home/Home'
-import World from '../Components/World/World'
+import {World} from '../Components/Pages/World'
 import UsPolitics from '../Components/UsPolitics/UsPolitics'
 import Business from '../Components/Business/Business'
 import Health from '../Components/Health/Health'
@@ -53,4 +53,4 @@ const Routes = () => {
     )
 }
 
-export default Routes
+export {Routes}

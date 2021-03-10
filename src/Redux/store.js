@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
+import { StyleReducer } from "./styles/reducer";
 import { WorldReducer } from "./world/reducer";
 
 const rootReducer = combineReducers({
   world: WorldReducer,
+  style: StyleReducer
 });
 
 const composeEnhancers =

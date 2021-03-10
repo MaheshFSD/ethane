@@ -69,4 +69,4 @@ const StylePageCarousel = () => {
   );
 };
 
-export default StylePageCarousel;
+export { StylePageCarousel };

@@ -1,15 +1,16 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import Home from "../Components/Home/Home";
-import UsPolitics from "../Components/UsPolitics/UsPolitics";
-import Business from "../Components/Business/Business";
-import Health from "../Components/Health/Health";
-import Entertainment from "../Components/Entertainment/Entertainment";
-import StylePage from "../Components/Style/StylePage";
-import Travel from "../Components/Travel/Travel";
-import Sports from "../Components/Sports/Sports";
-import Videos from "../Components/Videos/Videos";
-import { World } from "../Components/Pages/World";
+import { Home } from "../Components/Home/Home";
+import { UsPolitics } from "../Components/UsPolitics/UsPolitics";
+import { Business } from "../Components/Business/Business";
+import { Health } from "../Components/Health/Health";
+import { Entertainment } from "../Components/Entertainment/Entertainment";
+import { StylePage } from "../Components/Style/StylePage";
+import { Travel } from "../Components/Travel/Travel";
+import { Sports } from "../Components/Sports/Sports";
+import { Videos } from "../Components/Videos/Videos";
+import { World } from "../Components/World/World";
+import { Footer } from "../Components/Footer/Footer";
 
 const Routes = () => {
   return (
@@ -45,6 +46,9 @@ const Routes = () => {
         <Route exact path="/videos">
           <Videos />
         </Route>
+        <Route exact path="/footer">
+          <Footer />
+        </Route>
         <Route>
           <h1>404</h1>
         </Route>
@@ -56,4 +60,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export { Routes };

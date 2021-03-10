@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useParams } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import styled from "styled-components"
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -8,6 +8,20 @@ export const HealthLinksPage = () => {
 
     const {publishedAt} = useParams()
     const {healthNews} = useSelector(state => state.health)
+    const history = useHistory()
+
+    let a = healthNews.map(item => publishedAt === item.publishedAt)
+
+    let count = 0
+    for(let i=0; i<a.length ; i++) {
+        if(a[i] !== true) count++
+        else break
+    }
+
+    const goToLink = (data) => {
+        history.push(`/health/${data}`)
+    }
+    
 
     return (
         <>
@@ -16,7 +30,7 @@ export const HealthLinksPage = () => {
                     <NewsWrapper>
                         <h1>{item.title}</h1>
                         <h3>By {item.author}, CNN</h3>
-                        <p> Updated {item.publishedAt}</p>
+                        <p>Updated {item.publishedAt}</p>
                         <div>
                             <img src={item.urlToImage} />
                         </div>
@@ -31,6 +45,17 @@ export const HealthLinksPage = () => {
                             <p>Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Maecenas pharetra convallis posuere morbi leo urna molestie. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Aliquet enim tortor at auctor. Viverra suspendisse potenti nullam ac. Senectus et netus et malesuada fames ac turpis egestas sed. Adipiscing diam donec adipiscing tristique. Lobortis mattis aliquam faucibus purus in massa. Cursus euismod quis viverra nibh cras pulvinar mattis nunc sed. Quam nulla porttitor massa id neque aliquam. Sit amet purus gravida quis blandit turpis cursus. Eu mi bibendum neque egestas congue quisque. Sodales neque sodales ut etiam sit amet. Nunc sed velit dignissim sodales ut eu sem integer.</p>
                             <p>Scelerisque eu ultrices vitae auctor eu. Etiam non quam lacus suspendisse faucibus interdum posuere lorem. Aliquet bibendum enim facilisis gravida neque convallis. Viverra vitae congue eu consequat ac. Id nibh tortor id aliquet lectus. Praesent semper feugiat nibh sed. Est ultricies integer quis auctor elit sed. Ut pharetra sit amet aliquam id. Aliquam sem et tortor consequat. Pretium fusce id velit ut tortor. Augue lacus viverra vitae congue eu consequat ac felis.</p>
                         </HealthStory>
+
+                        <NextStoryDiv>
+                            <div>
+                                <i class="fa fa-arrow-right" onClick={() => goToLink(healthNews[count+1].publishedAt)}></i>
+                            </div>
+                            <div>
+                                <p>{healthNews[count+1].title}</p>
+                                <span>Next Story</span>
+                            </div>
+                        </NextStoryDiv>
+
                     </NewsWrapper>
                 : ""
                 ))}
@@ -79,4 +104,73 @@ const HealthStory = styled.div `
     span {
         font-weight: bold;
     }
+`
+
+const NextStoryDiv = styled.div `
+    height: 120px;
+    width: 340px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin-left: 874px;
+    margin-top: -2000px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    div:nth-child(1) {
+        background-color: #E6E6E6;
+        cursor: pointer;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div:nth-child(1):hover {
+        color: white;
+        background-color: #8C8C8C;
+        
+    }
+
+    div:nth-child(2) {
+        height: 99%;
+        width: 300px;
+        border: 1px solid rgba(0,0,0,0.5);
+        display: flex;
+        display: none;
+        animation-duration: 1s;
+        animation-name: slidein;
+        font-weight: bold;
+
+        @keyframes slidein {
+            from {
+            margin-left: 20%;
+            width: 100%;
+            }
+        
+            to {
+            margin-left: 0%;
+            width: 100%;
+            }
+        }
+
+        span {
+            position: absolute;
+            bottom: 10px;
+            right: 60px;
+            color: red;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        p {
+            padding-left: 10px;
+            color: rgb(102, 102, 102);
+        }
+    }
+
+    div:nth-child(1):hover + div:nth-child(2) {
+        display: block;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-in;
 `

@@ -1,55 +1,55 @@
-import React, { useEffect } from 'react'
-import { shallowEqual, useDispatch, useSelector } from 'react-redux'
-import { business, getfinance } from '../../Redux/Business/action'
-import styled from 'styled-components'
-import { Footer } from '../Footer/Footer'
-import { Link, useHistory } from 'react-router-dom'
-import CircularProgress from '@material-ui/core/CircularProgress'
+import React, { useEffect } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { business, getfinance } from "../../Redux/Business/action";
+import styled from "styled-components";
+import { Footer } from "../Footer/Footer";
+import { Link, useHistory } from "react-router-dom";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Business = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // console.log(dispatch(business()))
 
   const { businessNews, isLoading } = useSelector(
     (state) => state.business,
     shallowEqual
-  )
-  const { finance } = useSelector((state) => state.finances, shallowEqual)
-  console.log(finance)
-  const history = useHistory()
+  );
+  const { finance } = useSelector((state) => state.finances, shallowEqual);
+  console.log(finance);
+  const history = useHistory();
   const goToLink = (data) => {
-    history.push(`/business/${data}`)
-  }
+    history.push(`/business/${data}`);
+  };
 
   useEffect(() => {
-    dispatch(business())
-    dispatch(getfinance())
-  }, [dispatch])
+    dispatch(business());
+    dispatch(getfinance());
+  }, [dispatch]);
   return isLoading ? (
     <div
       style={{
-        position: 'relative',
-        marginTop: '100px',
-        fontFamily: 'serif',
+        position: "relative",
+        marginTop: "100px",
+        fontFamily: "serif",
       }}
     >
       {/* <h1 style={{ textAlign: 'center' }}>HAPPINESS</h1> */}
       <CircularProgress
-        color='primary'
+        color="primary"
         size={100}
         left={-20}
         top={10}
-        status={'loading'}
-        style={{ marginLeft: '46%', marginTop: '100px' }}
+        status={"loading"}
+        style={{ marginLeft: "46%", marginTop: "100px" }}
       />
-      <p style={{ textAlign: 'center', fontSize: '20px' }}>Loading...</p>
+      <p style={{ textAlign: "center", fontSize: "20px" }}>Loading...</p>
     </div>
   ) : (
     <div>
       <Market>
         <img
-          src='https://cnnic-resources-production.s3.eu-west-1.amazonaws.com/s3fs-public/2019-10/Viewpoint%20CNN%20Business_0.jpg'
-          alt='adv'
+          src="https://cnnic-resources-production.s3.eu-west-1.amazonaws.com/s3fs-public/2019-10/Viewpoint%20CNN%20Business_0.jpg"
+          alt="adv"
         />
       </Market>
       <TopBusiness>
@@ -87,15 +87,15 @@ const Business = () => {
         <TopRightBusiness>
           <TopRightWrapper>
             <h4>MARKETS</h4>
-            <input type='text' placeholder='Quote Search' />
+            <input type="text" placeholder="Quote Search" />
             <h4>MOST ACTIVE STOCK</h4>
             <MarketWrapper>
               <div>
                 <h3>GE</h3>
                 <p>Gap Inc</p>
               </div>
-              <div style={{ textAlign: 'right' }}>
-                <p style={{ color: 'red' }}>-0.75/-5.36%</p>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ color: "red" }}>-0.75/-5.36%</p>
                 <p>30.15</p>
               </div>
             </MarketWrapper>
@@ -104,8 +104,8 @@ const Business = () => {
                 <h3>BEN</h3>
                 <p>Franklin Resources</p>
               </div>
-              <div style={{ textAlign: 'right' }}>
-                <p style={{ color: 'green' }}>+2.56/+9.36%</p>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ color: "green" }}>+2.56/+9.36%</p>
                 <p>28</p>
               </div>
             </MarketWrapper>
@@ -114,8 +114,8 @@ const Business = () => {
                 <h3>CNP</h3>
                 <p>CenterPoint Energy</p>
               </div>
-              <div style={{ textAlign: 'right' }}>
-                <p style={{ color: 'green' }}>+0.42/+2.01%</p>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ color: "green" }}>+0.42/+2.01%</p>
                 <p>30.15</p>
               </div>
             </MarketWrapper>
@@ -180,10 +180,10 @@ const Business = () => {
       </Success>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export { Business }
+export { Business };
 
 const TopBusiness = styled.div`
   display: flex;
@@ -197,24 +197,24 @@ const TopBusiness = styled.div`
     text-align: left;
   }
   cursor: pointer;
-`
+`;
 
 const TopLeftBusiness = styled.div`
   /* border: 1px solid black; */
   width: 45%;
-`
+`;
 
 const TopMiddleBusiness = styled.div`
   /* border: 1px solid black; */
   width: 30%;
   margin: 0px 1%;
-`
+`;
 
 const TopRightBusiness = styled.div`
   /* border: 1px solid black; */
   width: 30%;
   height: 400px;
-`
+`;
 const TopRightWrapper = styled.div`
   input {
     width: 98%;
@@ -224,7 +224,7 @@ const TopRightWrapper = styled.div`
     border-bottom: 3px solid #26f126;
     padding-bottom: 10px;
   }
-`
+`;
 const MarketWrapper = styled.div`
   div {
     width: 200px;
@@ -235,7 +235,7 @@ const MarketWrapper = styled.div`
   height: 100px;
   /* padding: 0px 10px; */
   display: flex;
-`
+`;
 
 const Market = styled.div`
   /* border: 1px solid black; */
@@ -247,7 +247,7 @@ const Market = styled.div`
     width: 100%;
     height: 100%;
   }
-`
+`;
 
 const TopLeftData = styled.div`
   img {
@@ -262,7 +262,7 @@ const TopLeftData = styled.div`
     color: #26f126;
     background-color: white;
   }
-`
+`;
 
 const TopLeftCard = styled.p`
   border-top: 1px solid grey;
@@ -270,7 +270,7 @@ const TopLeftCard = styled.p`
   &:hover {
     color: #26f126;
   }
-`
+`;
 const TopMiddlecard = styled.div`
   border: 1px solid #e1e1e1;
   margin-bottom: 10%;
@@ -285,7 +285,7 @@ const TopMiddlecard = styled.div`
   &:hover {
     color: #26f126;
   }
-`
+`;
 const MiddleBusiness = styled.div`
   display: flex;
 
@@ -295,7 +295,7 @@ const MiddleBusiness = styled.div`
   h2 {
     text-align: left;
   }
-`
+`;
 
 const MiddleCard = styled.div`
   width: 30%;
@@ -304,7 +304,7 @@ const MiddleCard = styled.div`
     height: 200px;
   }
   margin-right: 5%;
-`
+`;
 
 const Success = styled.div`
   display: flex;
@@ -314,7 +314,7 @@ const Success = styled.div`
   margin: auto;
   margin-top: 2%;
   column-gap: 20px;
-`
+`;
 
 const SuccessCard = styled.div`
   /* border: 1px solid #b1b1b1; */
@@ -325,7 +325,7 @@ const SuccessCard = styled.div`
     height: 200px;
   }
   margin-bottom: 10px;
-`
+`;
 
 const Header = styled.h2`
   border-bottom: 2px solid #26f126;
@@ -333,4 +333,4 @@ const Header = styled.h2`
   margin: auto;
   margin-top: 1%;
   padding-bottom: 10px;
-`
+`;

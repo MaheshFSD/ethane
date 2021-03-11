@@ -94,7 +94,7 @@ const Business = () => {
                 <h3>GE</h3>
                 <p>Gap Inc</p>
               </div>
-              <div style={{ marginLeft: '200px', textAlign: 'right' }}>
+              <div style={{ textAlign: 'right' }}>
                 <p style={{ color: 'red' }}>-0.75/-5.36%</p>
                 <p>30.15</p>
               </div>
@@ -104,7 +104,7 @@ const Business = () => {
                 <h3>BEN</h3>
                 <p>Franklin Resources</p>
               </div>
-              <div style={{ marginLeft: '150px', textAlign: 'right' }}>
+              <div style={{ textAlign: 'right' }}>
                 <p style={{ color: 'green' }}>+2.56/+9.36%</p>
                 <p>28</p>
               </div>
@@ -114,7 +114,7 @@ const Business = () => {
                 <h3>CNP</h3>
                 <p>CenterPoint Energy</p>
               </div>
-              <div style={{ marginLeft: '150px', textAlign: 'right' }}>
+              <div style={{ textAlign: 'right' }}>
                 <p style={{ color: 'green' }}>+0.42/+2.01%</p>
                 <p>30.15</p>
               </div>
@@ -124,14 +124,17 @@ const Business = () => {
       </TopBusiness>
       <MiddleBusiness>
         {businessNews.slice(10, 12).map((item, index) => (
-          <MiddleCard key={index}>
+          <MiddleCard key={index} onClick={() => goToLink(item.publishedAt)}>
             <div>
               <img src={item.urlToImage} alt={item.title} />
               <h3>{item.title}</h3>
             </div>
             <div>
               {businessNews.slice(8, 12).map((item, index) => (
-                <TopLeftCard key={index}>
+                <TopLeftCard
+                  key={index}
+                  onClick={() => goToLink(item.publishedAt)}
+                >
                   <div>{item.title}</div>
                 </TopLeftCard>
               ))}
@@ -143,7 +146,7 @@ const Business = () => {
 
       <Success>
         {businessNews.slice(15, 19).map((item, index) => (
-          <SuccessCard key={index}>
+          <SuccessCard key={index} onClick={() => goToLink(item.publishedAt)}>
             <div>
               <img src={item.urlToImage} alt={item.title} />
               <p>{item.title}</p>
@@ -155,7 +158,7 @@ const Business = () => {
 
       <Success>
         {businessNews.slice(1, 5).map((item, index) => (
-          <SuccessCard key={index}>
+          <SuccessCard key={index} onClick={() => goToLink(item.publishedAt)}>
             <div>
               <img src={item.urlToImage} alt={item.title} />
               <p>{item.title}</p>
@@ -167,7 +170,7 @@ const Business = () => {
 
       <Success>
         {businessNews.slice(6, 10).map((item, index) => (
-          <SuccessCard key={index}>
+          <SuccessCard key={index} onClick={() => goToLink(item.publishedAt)}>
             <div>
               <img src={item.urlToImage} alt={item.title} />
               <p>{item.title}</p>
@@ -223,8 +226,13 @@ const TopRightWrapper = styled.div`
   }
 `
 const MarketWrapper = styled.div`
+  div {
+    width: 200px;
+    /* border: 1px solid black; */
+  }
   border-bottom: 1px solid black;
   margin: 0px 10px;
+  height: 100px;
   /* padding: 0px 10px; */
   display: flex;
 `

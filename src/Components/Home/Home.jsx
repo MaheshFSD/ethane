@@ -300,7 +300,7 @@ const ImageDesc1 = styled.div `
   display: flex;
   font-size: 22px;
   position: absolute;
-  top: 250px;
+  top: 300px;
   right: 13%;
 `
 
@@ -311,7 +311,7 @@ const ImageDesc2 = styled.div `
   display: flex;
   font-size: 22px;
   position: absolute;
-  top: 540px;
+  top: 610px;
   right: 13%;
 `
 

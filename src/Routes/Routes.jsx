@@ -32,6 +32,7 @@ import { HomeLinksPage } from '../Components/Home/HomeLinksPage'
 import { Profile } from '../Components/Profile/Profile'
 import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
+import { Navbar } from '../Components/Navbar/Navbar'
 
 const Routes = () => {
   return (
@@ -50,9 +51,11 @@ const Routes = () => {
           <UsPolitics />
         </Route>
         <Route exact path='/business'>
-          <Business />
+          <Navbar />
+          <Business />          
         </Route>
         <Route exact path='/business/:publishedAt'>
+          <Navbar />
           <BusinessCard />
         </Route>
         <Route exact path='/health'>
@@ -96,16 +99,16 @@ const Routes = () => {
         <Route path="/america" exact>
           <America></America>
         </Route>
-        <Route path="/america/:id">
+        {/* <Route path="/america/:id">
           <AmericaDetails></AmericaDetails>
-        </Route>
+        </Route> */}
         <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
 
-        <Route path="/asia/:id" exact>
+        {/* <Route path="/asia/:id" exact>
           <AsiaDetails></AsiaDetails>
-        </Route>
+        </Route> */}
         <Route path="/australia" exact>
           <Australia></Australia>
         </Route>

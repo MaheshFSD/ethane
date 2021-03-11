@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-import "font-awesome/css/font-awesome.min.css";
+// import "font-awesome/css/font-awesome.min.css";
+// import "font-awesome/css/font-awesome.min.css";
 
 export const HealthLinksPage = () => {
   const { publishedAt } = useParams();

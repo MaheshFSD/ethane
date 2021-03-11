@@ -22,13 +22,18 @@ import { Australia } from "../Components/World/Pages/Australia";
 import { Middle } from "../Components/World/Pages/Middle";
 import { Error } from "../Components/Error/Error";
 import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
+import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
 import { AfricaDetails } from "../Components/World/Pages/AfricaDetails";
+
 const Routes = () => {
   return (
     <div>
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/home/:publishedAt">
+          <HomeLinksPage />
         </Route>
         <Route exact path="/world">
           <World />

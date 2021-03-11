@@ -13,6 +13,7 @@ import { Entertainment } from '../Components/Entertainment/Entertainment'
 import { StylePage } from '../Components/Style/StylePage'
 import { Travel } from '../Components/Travel/Travel'
 import { Sports } from '../Components/Sports/Sports'
+import { SportsLinksPage } from '../Components/Sports/SportsLinksPage'
 import { Videos } from '../Components/Videos/Videos'
 import { World } from '../Components/World/World'
 import { Footer } from '../Components/Footer/Footer'
@@ -76,6 +77,9 @@ const Routes = () => {
         </Route>
         <Route exact path='/sports'>
           <Sports />
+          <Route exact path='/sports/:publishedAt'>
+          <SportsLinksPage />
+        </Route>
         </Route>
         <Route exact path='/videos'>
           <Videos />

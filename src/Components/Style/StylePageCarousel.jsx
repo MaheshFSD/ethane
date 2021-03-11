@@ -8,12 +8,13 @@ import {
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { AbsoluteNews, Relative } from "../../Styles/ContainerStyles";
 
 const StylePageCarousel = () => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
-      naturalSlideHeight={40}
+      naturalSlideHeight={50}
       totalSlides={3}
       interval={2000}
       isPlaying={true}
@@ -21,25 +22,46 @@ const StylePageCarousel = () => {
     >
       <Slider>
         <Slide index={0}>
+          <Relative>
           <img
             style={{ width: "100%", height: "100%" }}
             src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_1920,c_fill,g_auto,h_1080/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210225101252-01-moschino-milan-fashion-week-film-jungle-red.jpg"
             alt="img1"
           />
+            <AbsoluteNews>
+                <h4>Arts</h4>
+                <h1>A photographer chronicles their gender transition through self potrait</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quia ex aliquid iusto ipsam ratione similique? Reprehenderit vel vitae nam!</p>
+            </AbsoluteNews>
+          </Relative>
         </Slide>
         <Slide index={1}>
+          <Relative>
           <img
             style={{ width: "100%", height: "100%" }}
-            src="https://images.ctfassets.net/hrltx12pl8hq/4plHDVeTkWuFMihxQnzBSb/aea2f06d675c3d710d095306e377382f/shutterstock_554314555_copy.jpg"
+            src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_1920,c_fill,g_auto,h_1080,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210304195407-04-diana-markosian-santa-barbara.jpg"
             alt="img2"
           />
+          <AbsoluteNews>
+            <h4>Arts</h4>
+            <h1>A photographer tells her family's story about dark side of her American dreams</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quia ex aliquid iusto ipsam ratione similique? Reprehenderit vel vitae nam!</p>
+          </AbsoluteNews>
+          </Relative>
         </Slide>
         <Slide index={3}>
+          <Relative>
           <img
             style={{ width: "100%", height: "100%" }}
-            src="https://cc-prod.scene7.com/is/image/CCProdAuthor/Fashion-photography_P1_900x420?$pjpeg$&jpegSize=200&wid=900"
+            src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_1920,c_fill,g_auto,h_1080/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210310110919-13-myanmar-tattoo-restricted.jpg"
             alt="img3"
           />
+          <AbsoluteNews>
+            <h4>Arts</h4>
+            <h1>Myanmar protesters getting permanent symbol of resistance - tattoo</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, quia ex aliquid iusto ipsam ratione similique? Reprehenderit vel vitae nam!</p>
+          </AbsoluteNews>
+          </Relative>
         </Slide>
       </Slider>
       <ButtonBack

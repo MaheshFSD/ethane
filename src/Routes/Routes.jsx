@@ -33,6 +33,7 @@ import { Profile } from '../Components/Profile/Profile'
 import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
+import { StickyTop } from '../Components/Home/StickyTop'
 
 const Routes = () => {
   return (
@@ -91,7 +92,9 @@ const Routes = () => {
         <Route path='/africa/:id'>
           <AfricaDetails></AfricaDetails>
         </Route>
-
+        <Route path="/searchpage" >
+          <StickyTop />
+        </Route>
 
         <Route path="/africa" exact>
           <Africa></Africa>

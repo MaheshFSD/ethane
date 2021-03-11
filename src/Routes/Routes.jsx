@@ -31,7 +31,7 @@ const Routes = () => {
           <Home />
         </Route>
         <Route exact path="/world">
-          <World></World>
+          <World />
         </Route>
         <Route exact path="/uspolitics">
           <UsPolitics />
@@ -41,6 +41,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/health">
           <Health />
+        </Route>
+        <Route exact path="/health/:publishedAt">
+          <HealthLinksPage />
         </Route>
         <Route exact path="/entertainment">
           <Entertainment />

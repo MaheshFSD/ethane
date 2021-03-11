@@ -87,6 +87,101 @@ const Health = () => {
                 <div key={item.id}>
                   <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
                   <div></div>
+
+                  {/* import React from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
+import styled from "styled-components"
+import { get_health } from '../../Redux/health/action'
+import {Footer} from '../Footer/Footer'
+
+
+import { Navbar } from '../Navbar/Navbar'
+
+const Health = () => {
+
+    const dispatch = useDispatch()
+    const {isLoading, error, healthNews} = useSelector(state => state.health)
+    const history = useHistory()
+
+
+
+    const get_data = () => {
+        dispatch(get_health())
+    }
+
+    useEffect(() => {
+        get_data()
+    }, [dispatch])
+
+    const goToLink = (data) => {
+        history.push(`/health/${data}`)
+    }
+
+    return isLoading ? <Loading></Loading> :(
+        <>
+        <Navbar />
+        <MainContainer>
+            <img src="https://cdn.cnn.com/cnn/.e1mo/img/4.0/logos/cnn_health_banner.png" alt="health.logo"></img><br/>
+
+            <TopNewsContainer>
+
+                <TopNewsLeftPart>
+                    <img src = "https://s.yimg.com/uu/api/res/1.2/SAxQDBbGuKj8xqKLSOyF_Q--~B/aD0zOTYzO3c9Mzk5ODthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2021-02/95642c30-7547-11eb-bf39-5b86f86d2c77.cf.jpg"></img>
+                    {healthNews.slice(0, 6).map(item => (
+                    <div key={item.id}>
+                        <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
+                        <hr></hr>
+                    </div>
+                ))}
+                </TopNewsLeftPart>
+
+                <TopNewsMiddlePart>
+                    <Headings>
+                        <p>Latest</p>
+                    </Headings>
+                    {healthNews.slice(7, 14).map(item => (
+                        <div key={item.id}>
+                            <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
+                            <hr></hr>
+                        </div>
+                    ))}
+                </TopNewsMiddlePart>
+
+                <TopNewsRightPart>
+                    <div>
+                        <img src="https://cdn.cnn.com/cnnnext/dam/assets/210302130915-school-shootings-lockdown-drills-15-medium-plus-169.jpg"></img>
+                        <ImageDesc1>
+                            <p>CDC releases new guidelines for fully vaccinated individuals</p>
+                        </ImageDesc1>
+                    </div>
+                    <div>
+                        <img src="https://cdn.cnn.com/cnnnext/dam/assets/210308175815-dr-wen-cdc-reax-vpx-medium-plus-169.jpg"></img>
+                        <ImageDesc2>
+                            <p>'Defies common sense': Dr. Wen reacts to CDC guidelines</p>
+                        </ImageDesc2>
+                    </div>
+                </TopNewsRightPart>
+                
+                <div>{error && <h2>Failed To Load Data</h2>}</div>
+                
+            </TopNewsContainer>
+
+            <MoreHeadlines>
+                <div>
+                    <Headings>
+                        <p>More headlines</p>
+                    </Headings>
+                    <CommonHealthLinks>
+                        {healthNews.slice(0, 9).map(item => (
+                            <div key={item.id}>
+                                <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
+                                <div></div>
+                            </div>
+                        ))}
+                    </CommonHealthLinks>
+*/}
                 </div>
               ))}
             </CommonHealthLinks>
@@ -460,4 +555,5 @@ const Loading = styled.div`
     }
   }
 `;
+
 export { Health };

@@ -8,6 +8,7 @@ import {reducer as healthReducer} from "./health/reducer"
 import {reducer as homeReducer} from "./home/reducer"
 
 import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
+import { SearchReducer } from "./SearchPage/reducer";
 
 
 
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
+  search: SearchReducer
 });
 
 

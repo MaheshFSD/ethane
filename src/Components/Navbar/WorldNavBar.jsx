@@ -53,7 +53,7 @@ const WorldNavBar = () => {
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
         <Link to="/">
-          <img src="cnn_logo.png" alt="logo" />
+          <img src="../cnn_logo.png" alt="logo" />
         </Link>
         {links.map(({ to, title }) => (
           <Link to={to} key={to}>

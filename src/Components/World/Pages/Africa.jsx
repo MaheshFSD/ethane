@@ -2,21 +2,25 @@ import React, { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { fetchAfricaData } from "../../../Redux/world/action";
 import styled from "styled-components";
-import { Link, useParams } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Footer } from "../../Footer/Footer";
 import { WorldNavBar } from "../../Navbar/WorldNavBar";
 
 const Africa = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const { data } = useSelector((state) => state.world, shallowEqual);
 
   useEffect(() => {
     dispatch(fetchAfricaData());
   }, [dispatch]);
+
   console.log(data);
 
   const handleClick = (id) => {
     console.log(id);
+    history.push(`/africa/${id}`);
   };
   return (
     <>
@@ -27,37 +31,30 @@ const Africa = () => {
           {data.slice(0, 1).map((item, index) => (
             <IMG_DIV key={index} onClick={(e) => handleClick(item.id)}>
               <img src={item.image} alt="image-1"></img>
-              <span>{item.title}</span>
+              <span onClick={() => handleClick(item.id)}>{item.title}</span>
             </IMG_DIV>
           ))}
           <LINK_DIV>
-            {data.slice(1, 5).map((item, index) => (
+            {data.slice(2, 6).map((item, index) => (
               <INSIDE_LINK_DIV key={index}>
-                <Link to={`/subheading/${index}`} key={index}>
-                  <a href={item.title}>{item.title}</a>
-                </Link>
+                <p onClick={() => handleClick(item.id)}>{item.title}</p>
               </INSIDE_LINK_DIV>
             ))}
           </LINK_DIV>
         </TOP_HEADER_DIV_1>
-        {/* <TAG_HEADING>
-          <H1_TAG>
-            Around the world
-            <span>&nbsp;</span>
-          </H1_TAG>
-        </TAG_HEADING> */}
+
         <AROUND_DIV_CONTENT>
           {data.slice(1, 3).map((item, index) => (
             <IMG__HEADER key={index}>
               <h2>News and Buzz</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
-                <h3>{item.title}</h3>
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
                 {data.slice(8, 12).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
+                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
                 ))}
               </LINK_DIV_2>
@@ -90,12 +87,12 @@ const Africa = () => {
               <h2>Royal's Comments</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
-                <h3>{item.title}</h3>
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
                 {data.slice(8, 11).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
+                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
                 ))}
               </LINK_DIV_2>
@@ -109,15 +106,8 @@ const Africa = () => {
               <h2> Women in space science</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
-                <h3>{item.title}</h3>
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
-              {/* <LINK_DIV_2>
-                {data.slice(7, 10).map((item, index) => (
-                  <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
-                  </INSIDE_LINK_DIV_2>
-                ))}
-              </LINK_DIV_2> */}
             </IMG__HEADER>
           ))}
         </AROUND_DIV_CONTENT>
@@ -141,7 +131,7 @@ const Africa = () => {
             <IMG__HEADER_2 key={index}>
               <IMG_DIV_3>
                 <img src={item.image} alt="image" />
-                <h3>{item.title}</h3>
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_3>
             </IMG__HEADER_2>
           ))}
@@ -179,7 +169,7 @@ const TOP_HEADER_DIV_1 = styled.div`
   margin: 0px auto;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid red;
+  border: 1px solid #ccc;
   /* justify-content: center; */
 `;
 
@@ -198,6 +188,10 @@ const IMG_DIV = styled.div`
     color: black;
     font-size: 24px;
   }
+  span:hover {
+    color: red;
+    cursor: pointer;
+  }
 `;
 
 const LINK_DIV = styled.div`
@@ -214,9 +208,13 @@ const INSIDE_LINK_DIV = styled.div`
   align-items: flex-start;
   margin: 5px 0px;
   width: 73%;
-  a {
+  p {
     text-decoration: none;
     color: black;
+  }
+  p:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 
@@ -294,7 +292,9 @@ const IMG_DIV_2 = styled.div`
     width: 350px;
     height: 250px;
   }
-  span {
+  h3:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 const IMG_DIV_3 = styled.div`
@@ -309,7 +309,9 @@ const IMG_DIV_3 = styled.div`
     width: 300px;
     height: 250px;
   }
-  span {
+  h3:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 
@@ -356,8 +358,12 @@ const INSIDE_LINK_DIV_2 = styled.div`
   padding: 5px;
   width: 92%;
   text-align: left;
-  a {
+  p {
     text-decoration: none;
     color: black;
+  }
+  p:hover {
+    color: red;
+    cursor: pointer;
   }
 `;

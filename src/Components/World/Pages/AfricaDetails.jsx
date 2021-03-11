@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
-import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { shallowEqual, useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { Footer } from "../../Footer/Footer";
+import { WorldNavBar } from "../../Navbar/WorldNavBar";
 import styled from "styled-components";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { Footer } from "../Footer/Footer";
-import { WorldNavBar } from "../Navbar/WorldNavBar";
-const WorldDetails = () => {
-  // const [apiData, setApiData] = useEffect("");
+
+const AfricaDetails = () => {
   const { data } = useSelector((state) => state.world, shallowEqual);
   console.log(data);
+
   const { id } = useParams();
   let a = data.map((item) => id == item.id);
   let count = 0;
@@ -55,7 +56,7 @@ const WorldDetails = () => {
   );
 };
 
-export { WorldDetails };
+export { AfricaDetails };
 
 const IMG_DIV = styled.div`
   border: 1px solid #ccc;

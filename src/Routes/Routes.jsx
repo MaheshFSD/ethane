@@ -23,6 +23,8 @@ import { Middle } from "../Components/World/Pages/Middle";
 import { Error } from "../Components/Error/Error";
 import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
 import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
+import { AfricaDetails } from "../Components/World/Pages/AfricaDetails";
+
 const Routes = () => {
   return (
     <div>
@@ -45,8 +47,8 @@ const Routes = () => {
         <Route exact path="/health">
           <Health />
         </Route>
-        <Route exact path="/health/:publishedAt" >
-            <HealthLinksPage />
+        <Route exact path="/health/:publishedAt">
+          <HealthLinksPage />
         </Route>
         <Route exact path="/entertainment">
           <Entertainment />
@@ -69,9 +71,10 @@ const Routes = () => {
         <Route path="/world/:id">
           <WorldDetails></WorldDetails>
         </Route>
-        <Route path="/subheading/:index">
-          <WorldDetails></WorldDetails>
+        <Route path="/africa/:id">
+          <AfricaDetails></AfricaDetails>
         </Route>
+
         <Route path="/africa">
           <Africa></Africa>
         </Route>
@@ -96,21 +99,19 @@ const Routes = () => {
         <Route path="/middleeast">
           <Middle></Middle>
         </Route>
+        <Route exact path="/health/:publishedAt">
+          <HealthLinksPage />
+        </Route>
         <Route path="/unitedkingdom">
           <Middle></Middle>
         </Route>
+        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
         <Route>
           <Error></Error>
         </Route>
-
-        {/* <PrivateRoute path="/profile">
->>>>>>> b325f7f8c362f3db948913ee59f7b6df5d43f07b
-        {/* <PrivateRoute path="/profile">
-                    <Profile />
-        </PrivateRoute> */}
-            </Switch>   
-        </div>
-    )
-}
+      </Switch>
+    </div>
+  );
+};
 
 export { Routes };

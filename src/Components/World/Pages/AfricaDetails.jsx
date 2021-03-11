@@ -8,7 +8,6 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const AfricaDetails = () => {
   const { data } = useSelector((state) => state.world, shallowEqual);
-  console.log(data);
 
   const { id } = useParams();
   let a = data.map((item) => id == item.id);

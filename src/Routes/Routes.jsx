@@ -1,3 +1,8 @@
+
+
+
+
+
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Home } from '../Components/Home/Home'
@@ -83,34 +88,46 @@ const Routes = () => {
         <Route path='/africa/:id'>
           <AfricaDetails></AfricaDetails>
         </Route>
-        <Route path='/africa'>
+
+
+        <Route path="/africa" exact>
           <Africa></Africa>
         </Route>
-        <Route path='/america'>
+        <Route path="/america" exact>
           <America></America>
         </Route>
-        <Route path='/asia'>
+        <Route path="/america/:id">
+          <AmericaDetails></AmericaDetails>
+        </Route>
+        <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
-        <Route path='/australia'>
+
+        <Route path="/asia/:id" exact>
+          <AsiaDetails></AsiaDetails>
+        </Route>
+        <Route path="/australia" exact>
           <Australia></Australia>
         </Route>
-        <Route path='/china'>
+        <Route path="/china" exact>
           <China></China>
         </Route>
-        <Route path='/europe'>
+        <Route path="/europe" exact>
           <Europe></Europe>
         </Route>
-        <Route path='/india'>
+        <Route path="/india" exact>
           <India></India>
         </Route>
-        <Route path='/middleeast'>
+        <Route path="/middleeast" exact>
+
           <Middle></Middle>
         </Route>
         <Route exact path='/health/:publishedAt'>
           <HealthLinksPage />
         </Route>
-        <Route path='/unitedkingdom'>
+
+        <Route path="/unitedkingdom" exact>
+
           <Middle></Middle>
         </Route>
         {/* <PrivateRoute path="/profile"></PrivateRoute> */}

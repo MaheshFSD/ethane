@@ -1,15 +1,30 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import { WorldReducer } from './world/reducer'
+
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { BusinessReducer, HeadlinesReducer } from './Business/reducer'
+import thunk from "redux-thunk";
+import { StyleReducer } from "./styles/reducer";
+import { WorldReducer } from "./world/reducer";
+import {reducer as healthReducer} from "./health/reducer"
+import {reducer as homeReducer} from "./home/reducer"
+
 import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
+
+
+
+
+
+
 
 const rootReducer = combineReducers({
   world: WorldReducer,
+  style: StyleReducer,
+  health: healthReducer,
+  home: homeReducer,
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
-})
+});
+
 
 const composeEnhancers =
   (typeof window !== 'undefined' &&

@@ -24,7 +24,7 @@ const FinanceReducer = (state = initState, { type, payload }) => {
       return {
         ...state,
         finance: payload,
-        isLoading: true,
+        isLoading: false,
       }
     }
 

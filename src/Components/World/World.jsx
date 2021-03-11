@@ -2,31 +2,41 @@ import React, { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { gitHubUserSearch } from "../../Redux/world/action";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { Footer } from "../Footer/Footer";
+import { WorldNavBar } from "../Navbar/WorldNavBar";
 const World = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const { data } = useSelector((state) => state.world, shallowEqual);
-  //   console.log(data);
+  const { data, id, title, publishedAt } = useSelector(
+    (state) => state.world,
+    shallowEqual
+  );
   useEffect(() => {
     dispatch(gitHubUserSearch());
   }, [dispatch]);
+
+  const handleClick = (id) => {
+    console.log(id);
+    history.push(`/world/${id}`);
+  };
   return (
     <>
+      <WorldNavBar></WorldNavBar>
       <BODY_CONTAINER_MAIN_DIV>
         <h1>World</h1>
         <TOP_HEADER_DIV_1>
           {data.slice(0, 1).map((item, index) => (
             <IMG_DIV key={index}>
-              <img src={item.urlToImage} alt="image-1"></img>
-              <span>{item.title}</span>
+              <img src={item.image} alt="image-1"></img>
+              <span onClick={() => handleClick(item.id)}>{item.title}</span>
             </IMG_DIV>
           ))}
           <LINK_DIV>
             {data.slice(1, 5).map((item, index) => (
               <INSIDE_LINK_DIV key={index}>
-                <a href={item.title}>{item.title}</a>
+                <p onClick={() => handleClick(item.id)}>{item.title}</p>
               </INSIDE_LINK_DIV>
             ))}
           </LINK_DIV>
@@ -39,16 +49,16 @@ const World = () => {
         </TAG_HEADING>
         <AROUND_DIV_CONTENT>
           {data.slice(0, 6).map((item, index) => (
-            <IMG__HEADER>
+            <IMG__HEADER key={index}>
               <h2>Europe</h2>
               <IMG_DIV_2>
-                <img src={item.urlToImage} alt="urlToImage" />
-                <h3>{item.title}</h3>
+                <img src={item.image} alt="image" />
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
                 {data.slice(8, 12).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
+                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
                 ))}
               </LINK_DIV_2>
@@ -66,16 +76,16 @@ const World = () => {
         </TAG_HEADING>
         <AROUND_DIV_CONTENT>
           {data.slice(14, 17).map((item, index) => (
-            <IMG__HEADER>
+            <IMG__HEADER key={index}>
               <h2>Climate in crisis</h2>
               <IMG_DIV_2>
-                <img src={item.urlToImage} alt="urlToImage" />
-                <h3>{item.title}</h3>
+                <img src={item.image} alt="image" />
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
                 {data.slice(8, 12).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
+                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
                 ))}
               </LINK_DIV_2>
@@ -93,16 +103,16 @@ const World = () => {
         </TAG_HEADING>
         <AROUND_DIV_CONTENT>
           {data.slice(7, 10).map((item, index) => (
-            <IMG__HEADER>
-              <h2> Dubai Now</h2>
+            <IMG__HEADER key={index}>
+              <h2> Dubai News</h2>
               <IMG_DIV_2>
-                <img src={item.urlToImage} alt="urlToImage" />
-                <h3>{item.title}</h3>
+                <img src={item.image} alt="image" />
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
                 {data.slice(7, 10).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
-                    <a href={item.title}>{item.title}</a>
+                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
                 ))}
               </LINK_DIV_2>
@@ -119,11 +129,11 @@ const World = () => {
           </H1_TAG_2>
         </TAG_HEADING>
         <AROUND_DIV_CONTENT>
-          {data.slice(0, 18).map((item, index) => (
-            <IMG__HEADER_2>
+          {data.slice(0, 20).map((item, index) => (
+            <IMG__HEADER_2 key={index}>
               <IMG_DIV_3>
-                <img src={item.urlToImage} alt="urlToImage" />
-                <h3>{item.title}</h3>
+                <img src={item.image} alt="image" />
+                <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_3>
             </IMG__HEADER_2>
           ))}
@@ -146,6 +156,7 @@ const BODY_CONTAINER_MAIN_DIV = styled.div`
   width: 80%;
   display: flex;
   margin: auto;
+  color: black;
   flex-direction: column;
   h1 {
     display: flex;
@@ -172,6 +183,12 @@ const IMG_DIV = styled.div`
   }
   span {
     margin: 20px;
+    color: black;
+    font-size: 24px;
+  }
+  span:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 
@@ -187,10 +204,14 @@ const INSIDE_LINK_DIV = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 5px 0px;
-  width: 73%;
-  a {
+  width: 78%;
+  p {
     text-decoration: none;
     color: black;
+  }
+  p:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 
@@ -268,12 +289,13 @@ const IMG_DIV_2 = styled.div`
     width: 350px;
     height: 250px;
   }
-  span {
+  h3:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 const IMG_DIV_3 = styled.div`
   display: flex;
-  /* border: 1px solid #725f5f; */
   width: 300px;
   height: 300px;
   margin: 0px auto;
@@ -283,7 +305,9 @@ const IMG_DIV_3 = styled.div`
     width: 300px;
     height: 250px;
   }
-  span {
+  h3:hover {
+    color: red;
+    cursor: pointer;
   }
 `;
 
@@ -330,8 +354,12 @@ const INSIDE_LINK_DIV_2 = styled.div`
   padding: 5px;
   width: 92%;
   text-align: left;
-  a {
+  p {
     text-decoration: none;
     color: black;
+  }
+  p:hover {
+    color: red;
+    cursor: pointer;
   }
 `;

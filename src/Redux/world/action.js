@@ -44,7 +44,7 @@ const gitHubUserSearch = (payload) => (dispatch) => {
   // const { user } = payload;
   return axios
     .get(
-      `http://newsapi.org/v2/everything?q=world&apiKey=c96cb0e8eff943f4ba79b9dd233fff42`
+      'http://newsapi.org/v2/everything?q=fashion&from=2021-03-10&sortBy=publishedAt&apiKey=afb0ad80492b485db131d463da513064'
     )
     .then((res) => {
       dispatch(getDataSuccess(res.data.articles));

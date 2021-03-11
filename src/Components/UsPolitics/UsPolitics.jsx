@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const UsPolitics = () => {
-    return (
-        <div>
-            Hello Us Politics
-        </div>
-    )
-}
+  return <div>Hello Us Politics</div>;
+};
 
-export default UsPolitics
+export { UsPolitics };

@@ -14,4 +14,4 @@ const EditorsPick = () => {
     )
 }
 
-export default EditorsPick
+export {EditorsPick}

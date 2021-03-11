@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 
-const Error = () => {
-  return (
-    <div>
-      <h1>Error</h1>
-    </div>
-  );
-};
+// const Error = () => {
+//   return (
+//     <div>
+//       <h1>Error</h1>
+//     </div>
+//   );
+// };
 
-export { Error };
+// export { Error };

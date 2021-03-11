@@ -9,7 +9,7 @@ import {
 import "pure-react-carousel/dist/react-carousel.es.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const StylePageCarousel = () => {
+const VideoCrousel = () => {
   return (
     <CarouselProvider
       naturalSlideWidth={100}
@@ -69,4 +69,4 @@ const StylePageCarousel = () => {
   );
 };
 
-export { StylePageCarousel };
+export { VideoCrousel };

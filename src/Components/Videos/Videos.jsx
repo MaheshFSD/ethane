@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Videos = () => {
-    return (
-        <div>
-            Hello Videos
-        </div>
-    )
-}
+  return <div>Hello Videos</div>;
+};
 
-export default Videos
+export { Videos };

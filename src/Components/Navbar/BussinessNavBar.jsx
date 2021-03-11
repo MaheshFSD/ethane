@@ -5,70 +5,41 @@ import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineMenu } from "react-icons/ai";
 
-const links1 = [
+const links = [
   {
-    to: "/world",
-    title: "World",
+    to: "/markets",
+    title: "Markets",
   },
   {
-    to: "/uspolitics",
-    title: "Us Politics",
+    to: "/tech",
+    title: "Tech",
   },
   {
-    to: "/business",
-    title: "Business",
+    to: "/media",
+    title: "Media",
   },
   {
-    to: "/health",
-    title: "Health",
+    to: "/success",
+    title: "Success",
   },
   {
-    to: "/entertainment",
-    title: "Entertainment",
+    to: "/perspectives",
+    title: "Perspective",
   },
   {
-    to: "/style",
-    title: "Style",
-  },
-  {
-    to: "/travel",
-    title: "Travel",
-  },
-  {
-    to: "/sports",
-    title: "Sports",
-  },
-  {
-    to: "/videos",
-    title: "Videos",
+    to: "/video",
+    title: "Video",
   },
 ];
-const links2 = [
-  {
-    to: "/style",
-    title: "Style",
-  },
-  {
-    to: "/travel",
-    title: "Travel",
-  },
-  {
-    to: "/sports",
-    title: "Sports",
-  },
-  {
-    to: "/videos",
-    title: "Videos",
-  },
-];
-const Navbar = () => {
+
+const BussinessNavBar = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
         <Link to="/">
           <img src="cnn_logo.png" alt="logo" />
         </Link>
-        {links1.map(({ to, title }) => (
+        {links.map(({ to, title }) => (
           <Link to={to} key={to}>
             {title}
           </Link>
@@ -98,4 +69,4 @@ const Navbar = () => {
   );
 };
 
-export { Navbar };
+export { BussinessNavBar };

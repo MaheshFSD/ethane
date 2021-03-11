@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import { BussinessNavBar } from "../Navbar/BussinessNavBar";
 
 const Business = () => {
-    return (
-        <div>
-            Hello Business
-        </div>
-    )
-}
+  return (
+    <div>
+      <BussinessNavBar></BussinessNavBar>
+      <h1>Hello Business</h1>
+    </div>
+  );
+};
 
-export default Business
+export { Business };

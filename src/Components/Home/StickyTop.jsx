@@ -4,21 +4,16 @@ import { Input } from '../../Styles/Footer'
 import { Categories, News, NewsContainer, SearchButton, StickyBar, StoryType, Top } from '../../Styles/SearchPage'
 import { SearchResultPage } from './SearchResultPage'
 import {GrSearch} from "react-icons/gr"
+import { useDispatch, useSelector } from 'react-redux'
+import { getSearchData } from '../../Redux/SearchPage/action'
 
-const StickyTop = ({data}) => {
+const StickyTop = () => {
     const [input , setInput] = React.useState(" ")
-    const [search, setSearch] = React.useState(data)
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state.search.data)
     const handleClick = () => {
-        axios.get(`http://newsapi.org/v2/everything?apiKey=afb0ad80492b485db131d463da513064&q=${input}`)
-        .then(res => {
-            setSearch(res.data.articles)
-            data = search
-        })
-        .catch(err => console.log(err))
+        dispatch(getSearchData(input))
     }
-    React.useEffect(()=>{
-        setSearch(data)
-    },[data])
 
     return (
         <div>
@@ -60,7 +55,7 @@ const StickyTop = ({data}) => {
                     <br/>
                 </Categories>
                 <div>
-                {search.map((item => <SearchResultPage {...item}/>))}
+                {data.map((item => <SearchResultPage {...item}/>))}
                 </div>
             </NewsContainer>
         </div>

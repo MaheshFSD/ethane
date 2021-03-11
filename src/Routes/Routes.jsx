@@ -96,16 +96,16 @@ const Routes = () => {
         <Route path="/america" exact>
           <America></America>
         </Route>
-        <Route path="/america/:id">
+        {/* <Route path="/america/:id">
           <AmericaDetails></AmericaDetails>
-        </Route>
+        </Route> */}
         <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
 
-        <Route path="/asia/:id" exact>
+        {/* <Route path="/asia/:id" exact>
           <AsiaDetails></AsiaDetails>
-        </Route>
+        </Route> */}
         <Route path="/australia" exact>
           <Australia></Australia>
         </Route>

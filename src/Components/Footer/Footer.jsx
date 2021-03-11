@@ -11,18 +11,17 @@ import {
 } from "../../Styles/Footer";
 import { GrFacebook, GrInstagram, GrTwitter, GrSearch } from "react-icons/gr";
 import { StickyTop } from "../Home/StickyTop";
-import axios from "axios";
+// import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getSearchData } from "../../Redux/SearchPage/action";
 
 const Footer = () => {
   const [search, setSearch] = React.useState(false)
   const [input, setInput] = React.useState("")
-  const [data, setData] = React.useState([])
-
+  const dispatch = useDispatch()
   const handleClick = () => {
     setSearch(true)
-    axios.get(`http://newsapi.org/v2/everything?apiKey=afb0ad80492b485db131d463da513064&q=${input}`)
-    .then(res => setData(res.data.articles))
-    .catch(err => console.log(err))
+    dispatch(getSearchData(input))
   }
   return (!search?
     (<FooterWrapper>
@@ -186,7 +185,7 @@ const Footer = () => {
         </FooterFooter>
       </FooterContentContainer>
     </FooterWrapper>
-  ):(<StickyTop data={data}/>));
+  ):(<StickyTop/>));
 };
 
 export { Footer };

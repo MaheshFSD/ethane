@@ -1,56 +1,52 @@
 import React, { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { gitHubUserSearch } from "../../Redux/world/action";
+import { fetchAfricaData } from "../../../Redux/world/action";
 import styled from "styled-components";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { Footer } from "../Footer/Footer";
-import { WorldNavBar } from "../Navbar/WorldNavBar";
-const World = () => {
+import { Footer } from "../../Footer/Footer";
+import { WorldNavBar } from "../../Navbar/WorldNavBar";
+
+const Africa = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const { data, id, title, publishedAt } = useSelector(
-    (state) => state.world,
-    shallowEqual
-  );
+  const { data } = useSelector((state) => state.world, shallowEqual);
+
   useEffect(() => {
-    dispatch(gitHubUserSearch());
+    dispatch(fetchAfricaData());
   }, [dispatch]);
+
+  console.log(data);
 
   const handleClick = (id) => {
     console.log(id);
-    history.push(`/world/${id}`);
+    history.push(`/africa/${id}`);
   };
   return (
     <>
       <WorldNavBar></WorldNavBar>
       <BODY_CONTAINER_MAIN_DIV>
-        <h1>World</h1>
+        <h1>Africa</h1>
         <TOP_HEADER_DIV_1>
           {data.slice(0, 1).map((item, index) => (
-            <IMG_DIV key={index}>
+            <IMG_DIV key={index} onClick={(e) => handleClick(item.id)}>
               <img src={item.image} alt="image-1"></img>
               <span onClick={() => handleClick(item.id)}>{item.title}</span>
             </IMG_DIV>
           ))}
           <LINK_DIV>
-            {data.slice(1, 5).map((item, index) => (
+            {data.slice(2, 6).map((item, index) => (
               <INSIDE_LINK_DIV key={index}>
                 <p onClick={() => handleClick(item.id)}>{item.title}</p>
               </INSIDE_LINK_DIV>
             ))}
           </LINK_DIV>
         </TOP_HEADER_DIV_1>
-        <TAG_HEADING>
-          <H1_TAG>
-            Around the world
-            <span>&nbsp;</span>
-          </H1_TAG>
-        </TAG_HEADING>
+
         <AROUND_DIV_CONTENT>
-          {data.slice(0, 6).map((item, index) => (
+          {data.slice(1, 3).map((item, index) => (
             <IMG__HEADER key={index}>
-              <h2>Europe</h2>
+              <h2>News and Buzz</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
                 <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
@@ -64,26 +60,37 @@ const World = () => {
               </LINK_DIV_2>
             </IMG__HEADER>
           ))}
+          <div
+            style={{
+              width: "300px",
+              height: "540px",
+              border: "1px solid #ccc",
+              overflow: "auto",
+              padding: "10px",
+              margin: "10px",
+            }}
+          >
+            <a
+              class="twitter-timeline"
+              href="https://twitter.com/CNNAfrica?ref_src=twsrc%5Etfw"
+            >
+              Tweets by CNNAfrica
+            </a>
+          </div>
         </AROUND_DIV_CONTENT>
 
         {/* code for Featured sections */}
 
-        <TAG_HEADING>
-          <H1_TAG>
-            Featured sections
-            <span>&nbsp;</span>
-          </H1_TAG>
-        </TAG_HEADING>
         <AROUND_DIV_CONTENT>
-          {data.slice(14, 17).map((item, index) => (
+          {data.slice(1, 7).map((item, index) => (
             <IMG__HEADER key={index}>
-              <h2>Climate in crisis</h2>
+              <h2>Royal's Comments</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
                 <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
               <LINK_DIV_2>
-                {data.slice(8, 12).map((item, index) => (
+                {data.slice(8, 11).map((item, index) => (
                   <INSIDE_LINK_DIV_2 key={index}>
                     <p onClick={() => handleClick(item.id)}>{item.title}</p>
                   </INSIDE_LINK_DIV_2>
@@ -93,43 +100,34 @@ const World = () => {
           ))}
         </AROUND_DIV_CONTENT>
 
-        {/* code for Special Features */}
-
-        <TAG_HEADING>
-          <H1_TAG>
-            Special Features
-            <span>&nbsp;</span>
-          </H1_TAG>
-        </TAG_HEADING>
         <AROUND_DIV_CONTENT>
-          {data.slice(7, 10).map((item, index) => (
+          {data.slice(7, 13).map((item, index) => (
             <IMG__HEADER key={index}>
-              <h2> Dubai News</h2>
+              <h2> Women in space science</h2>
               <IMG_DIV_2>
                 <img src={item.image} alt="image" />
                 <h3 onClick={() => handleClick(item.id)}>{item.title}</h3>
               </IMG_DIV_2>
-              <LINK_DIV_2>
-                {data.slice(7, 10).map((item, index) => (
-                  <INSIDE_LINK_DIV_2 key={index}>
-                    <p onClick={() => handleClick(item.id)}>{item.title}</p>
-                  </INSIDE_LINK_DIV_2>
-                ))}
-              </LINK_DIV_2>
             </IMG__HEADER>
           ))}
         </AROUND_DIV_CONTENT>
+        <TAG_HEADING>
+          <H1_TAG>
+            Video
+            <span>&nbsp;</span>
+          </H1_TAG>
+        </TAG_HEADING>
 
         {/* code for More of the latest stories  */}
 
         <TAG_HEADING>
-          <H1_TAG_2>
-            More of the latest stories
+          <H1_TAG>
+            CNN Specials
             <span>&nbsp;</span>
-          </H1_TAG_2>
+          </H1_TAG>
         </TAG_HEADING>
         <AROUND_DIV_CONTENT>
-          {data.slice(0, 20).map((item, index) => (
+          {data.slice(9, 17).map((item, index) => (
             <IMG__HEADER_2 key={index}>
               <IMG_DIV_3>
                 <img src={item.image} alt="image" />
@@ -149,7 +147,7 @@ const World = () => {
   );
 };
 
-export { World };
+export { Africa };
 
 const BODY_CONTAINER_MAIN_DIV = styled.div`
   border: 1px solid #ddd;
@@ -167,8 +165,12 @@ const BODY_CONTAINER_MAIN_DIV = styled.div`
 `;
 const TOP_HEADER_DIV_1 = styled.div`
   display: flex;
-  margin: auto;
+  width: 90%;
+  margin: 0px auto;
   flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #ccc;
+  /* justify-content: center; */
 `;
 
 const IMG_DIV = styled.div`
@@ -179,10 +181,10 @@ const IMG_DIV = styled.div`
   img {
     width: 70%;
     height: 450px;
-    margin: 0 20px;
+    margin: 0;
   }
   span {
-    margin: 20px;
+    margin: 10px;
     color: black;
     font-size: 24px;
   }
@@ -195,6 +197,7 @@ const IMG_DIV = styled.div`
 const LINK_DIV = styled.div`
   display: flex;
   margin: 0px 20px;
+  width: 80%;
   flex-direction: column;
   align-items: flex-start;
 `;
@@ -204,7 +207,7 @@ const INSIDE_LINK_DIV = styled.div`
   display: flex;
   align-items: flex-start;
   margin: 5px 0px;
-  width: 78%;
+  width: 73%;
   p {
     text-decoration: none;
     color: black;
@@ -296,6 +299,7 @@ const IMG_DIV_2 = styled.div`
 `;
 const IMG_DIV_3 = styled.div`
   display: flex;
+  /* border: 1px solid #725f5f; */
   width: 300px;
   height: 300px;
   margin: 0px auto;

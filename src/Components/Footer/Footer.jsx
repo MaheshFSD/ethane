@@ -9,13 +9,28 @@ import {
   SocialIcon,
   SocialMediaWrapper,
 } from "../../Styles/Footer";
-import { GrFacebook, GrInstagram, GrTwitter } from "react-icons/gr";
+import { GrFacebook, GrInstagram, GrTwitter, GrSearch } from "react-icons/gr";
+import { StickyTop } from "../Home/StickyTop";
+import axios from "axios";
 
 const Footer = () => {
-  return (
-    <FooterWrapper>
+  const [search, setSearch] = React.useState(false)
+  const [input, setInput] = React.useState("")
+  const [data, setData] = React.useState([])
+
+  const handleClick = () => {
+    setSearch(true)
+    axios.get(`http://newsapi.org/v2/everything?apiKey=afb0ad80492b485db131d463da513064&q=${input}`)
+    .then(res => setData(res.data.articles))
+    .catch(err => console.log(err))
+  }
+  return (!search?
+    (<FooterWrapper>
       <FooterContentContainer>
-        <Input placeholder="Search CNN" />
+        <div style={{position:"relative"}}>
+        <Input placeholder="Search CNN" value={input} onChange={e => {setInput(e.target.value)}} />
+        <button onClick={handleClick} style={{position:"absolute", right:"5%", top: "5px", fontSize:"22px",backgroundColor:"transparent", border:"none"}}><GrSearch/></button>
+        </div>
         <CategoryWrapper>
           <div>
             <h3>US</h3>
@@ -171,7 +186,7 @@ const Footer = () => {
         </FooterFooter>
       </FooterContentContainer>
     </FooterWrapper>
-  );
+  ):(<StickyTop data={data}/>));
 };
 
 export { Footer };

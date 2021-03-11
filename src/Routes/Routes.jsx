@@ -23,6 +23,7 @@ import { Middle } from "../Components/World/Pages/Middle";
 import { Error } from "../Components/Error/Error";
 import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
 import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
+import { Profile } from "../Components/Profile/Profile";
 const Routes = () => {
   return (
     <div>
@@ -102,14 +103,11 @@ const Routes = () => {
         <Route>
           <Error></Error>
         </Route>
-
-        {/* <PrivateRoute path="/profile">
->>>>>>> b325f7f8c362f3db948913ee59f7b6df5d43f07b
-        {/* <PrivateRoute path="/profile">
-                    <Profile />
-        </PrivateRoute> */}
-            </Switch>   
-        </div>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+      </Switch>   
+    </div>
     )
 }
 

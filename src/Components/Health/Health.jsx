@@ -5,8 +5,6 @@ import { Link, useHistory } from 'react-router-dom'
 import styled from "styled-components"
 import { get_health } from '../../Redux/health/action'
 import {Footer} from '../Footer/Footer'
-
-
 import { Navbar } from '../Navbar/Navbar'
 
 const Health = () => {
@@ -14,8 +12,6 @@ const Health = () => {
     const dispatch = useDispatch()
     const {isLoading, error, healthNews} = useSelector(state => state.health)
     const history = useHistory()
-
-
 
     const get_data = () => {
         dispatch(get_health())

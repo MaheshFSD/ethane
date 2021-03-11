@@ -11,6 +11,7 @@ import { Sports } from "../Components/Sports/Sports";
 import { Videos } from "../Components/Videos/Videos";
 import { World } from "../Components/World/World";
 import { Footer } from "../Components/Footer/Footer";
+import { Article } from "../Components/Style/Article";
 import { WorldDetails } from "../Components/World/WorldDetails";
 import { Africa } from "../Components/World/Pages/Africa";
 import { America } from "../Components/World/Pages/America";
@@ -68,13 +69,15 @@ const Routes = () => {
         <Route exact path="/footer">
           <Footer />
         </Route>
+        <Route exact path="/style/:id">
+            <Article/>
+        </Route>
         <Route path="/world/:id">
           <WorldDetails></WorldDetails>
         </Route>
         <Route path="/africa/:id">
           <AfricaDetails></AfricaDetails>
         </Route>
-
         <Route path="/africa">
           <Africa></Africa>
         </Route>

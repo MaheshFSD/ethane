@@ -2,10 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { WorldReducer } from "./world/reducer";
 import {reducer as healthReducer} from "./health/reducer"
+import {reducer as homeReducer} from "./home/reducer"
 
 const rootReducer = combineReducers({
   world: WorldReducer,
-  health: healthReducer
+  health: healthReducer,
+  home: homeReducer
 });
 
 const composeEnhancers =

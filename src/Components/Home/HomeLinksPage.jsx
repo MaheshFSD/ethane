@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react'
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-// import "font-awesome/css/font-awesome.min.css";
+import "font-awesome/css/font-awesome.min.css";
 import { Navbar } from "../Navbar/Navbar";
 
-export const HealthLinksPage = () => {
-  const { publishedAt } = useParams();
-  const { healthNews } = useSelector((state) => state.health);
-  const history = useHistory();
+const HomeLinksPage = () => {
+    const { publishedAt } = useParams();
+    const { homeNews } = useSelector((state) => state.home);
+    const history = useHistory();
 
-  let a = healthNews.map((item) => publishedAt === item.publishedAt);
+  let a = homeNews.map((item) => publishedAt === item.publishedAt);
 
   let count = 0;
   for (let i = 0; i < a.length; i++) {
@@ -19,14 +19,14 @@ export const HealthLinksPage = () => {
   }
 
   const goToLink = (data) => {
-    history.push(`/health/${data}`);
+    history.push(`/home/${data}`);
   };
 
   return (
     <>
       <Navbar />
 
-      {healthNews.map((item) =>
+      {homeNews.map((item) =>
         publishedAt === item.publishedAt ? (
           <NewsWrapper>
             <h1>{item.title}</h1>
@@ -127,11 +127,11 @@ export const HealthLinksPage = () => {
               <div>
                 <i
                   class="fa fa-arrow-right"
-                  onClick={() => goToLink(healthNews[count + 1].publishedAt)}
+                  onClick={() => goToLink(homeNews[count + 1].publishedAt)}
                 ></i>
               </div>
               <div>
-                <p>{healthNews[count + 1].title}</p>
+                <p>{homeNews[count + 1].title}</p>
                 <span>Next Story</span>
               </div>
             </NextStoryDiv>
@@ -254,3 +254,5 @@ const NextStoryDiv = styled.div`
     transition-timing-function: ease-in;
   }
 `;
+
+export {HomeLinksPage}

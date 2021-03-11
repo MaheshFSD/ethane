@@ -102,7 +102,7 @@ export const getfinance = (payload) => (dispatch) => {
       `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-statistics?rapidapi-key=d1bbb3ce4amsh270932c6708be2fp11788cjsne0703bdbd950&x-rapidapi-host=apidojo-yahoo-finance-v1.p.rapidapi.com&symbol=AMRN&range=1d&region=US`
     )
     .then((res) => {
-      console.log(res.data.defaultKeyStatistics.profitMargins)
+      console.log(res.data)
       dispatch(getfinanceSuccess(res.data.defaultKeyStatistics.profitMargins))
     })
     .catch((err) => {

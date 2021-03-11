@@ -5,13 +5,14 @@ import styled from 'styled-components'
 import { GrPrevious, GrNext } from 'react-icons/gr'
 import { business } from '../../Redux/Business/action'
 import { Footer } from '../Footer/Footer'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 // import 'font-awesome/css/font-awesome.min.css'
 
 export const BusinessCard = () => {
   const dispatch = useDispatch()
   const { publishedAt } = useParams()
-  const { businessNews } = useSelector((state) => state.business)
+  const { businessNews, isLoading } = useSelector((state) => state.business)
 
   const history = useHistory()
 
@@ -30,7 +31,26 @@ export const BusinessCard = () => {
     dispatch(business())
   }, [dispatch])
 
-  return (
+  return isLoading ? (
+    <div
+      style={{
+        position: 'relative',
+        marginTop: '100px',
+        fontFamily: 'serif',
+      }}
+    >
+      {/* <h1 style={{ textAlign: 'center' }}>HAPPINESS</h1> */}
+      <CircularProgress
+        color='primary'
+        size={100}
+        left={-20}
+        top={10}
+        status={'loading'}
+        style={{ marginLeft: '46%', marginTop: '100px' }}
+      />
+      <p style={{ textAlign: 'center', fontSize: '20px' }}>Loading...</p>
+    </div>
+  ) : (
     <>
       {businessNews.map((item) =>
         publishedAt === item.publishedAt ? (

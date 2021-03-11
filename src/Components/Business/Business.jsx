@@ -10,12 +10,12 @@ const Business = () => {
   const dispatch = useDispatch()
   // console.log(dispatch(business()))
 
-  const { businessNews, isLoading, isError } = useSelector(
+  const { businessNews, isLoading } = useSelector(
     (state) => state.business,
     shallowEqual
   )
   const { finance } = useSelector((state) => state.finances, shallowEqual)
-
+  console.log(finance)
   const history = useHistory()
   const goToLink = (data) => {
     history.push(`/business/${data}`)
@@ -46,7 +46,12 @@ const Business = () => {
     </div>
   ) : (
     <div>
-      <Market></Market>
+      <Market>
+        <img
+          src='https://cnnic-resources-production.s3.eu-west-1.amazonaws.com/s3fs-public/2019-10/Viewpoint%20CNN%20Business_0.jpg'
+          alt='adv'
+        />
+      </Market>
       <TopBusiness>
         <TopLeftBusiness>
           {businessNews.slice(0, 1).map((item, index) => (
@@ -79,7 +84,43 @@ const Business = () => {
             </TopMiddlecard>
           ))}
         </TopMiddleBusiness>
-        <TopRightBusiness></TopRightBusiness>
+        <TopRightBusiness>
+          <TopRightWrapper>
+            <h4>MARKETS</h4>
+            <input type='text' placeholder='Quote Search' />
+            <h4>MOST ACTIVE STOCK</h4>
+            <MarketWrapper>
+              <div>
+                <h3>GE</h3>
+                <p>Gap Inc</p>
+              </div>
+              <div style={{ marginLeft: '200px', textAlign: 'right' }}>
+                <p style={{ color: 'red' }}>-0.75/-5.36%</p>
+                <p>30.15</p>
+              </div>
+            </MarketWrapper>
+            <MarketWrapper>
+              <div>
+                <h3>BEN</h3>
+                <p>Franklin Resources</p>
+              </div>
+              <div style={{ marginLeft: '150px', textAlign: 'right' }}>
+                <p style={{ color: 'green' }}>+2.56/+9.36%</p>
+                <p>28</p>
+              </div>
+            </MarketWrapper>
+            <MarketWrapper>
+              <div>
+                <h3>CNP</h3>
+                <p>CenterPoint Energy</p>
+              </div>
+              <div style={{ marginLeft: '150px', textAlign: 'right' }}>
+                <p style={{ color: 'green' }}>+0.42/+2.01%</p>
+                <p>30.15</p>
+              </div>
+            </MarketWrapper>
+          </TopRightWrapper>
+        </TopRightBusiness>
       </TopBusiness>
       <MiddleBusiness>
         {businessNews.slice(10, 12).map((item, index) => (
@@ -167,14 +208,37 @@ const TopMiddleBusiness = styled.div`
 `
 
 const TopRightBusiness = styled.div`
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 30%;
   height: 400px;
 `
+const TopRightWrapper = styled.div`
+  input {
+    width: 98%;
+    height: 30px;
+  }
+  h4 {
+    border-bottom: 3px solid #26f126;
+    padding-bottom: 10px;
+  }
+`
+const MarketWrapper = styled.div`
+  border-bottom: 1px solid black;
+  margin: 0px 10px;
+  /* padding: 0px 10px; */
+  display: flex;
+`
 
 const Market = styled.div`
-  border: 1px solid black;
-  height: 150px;
+  /* border: 1px solid black; */
+  height: 250px;
+  width: 70%;
+  margin: 10px auto;
+  /* margin: 10px 150px; */
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const TopLeftData = styled.div`

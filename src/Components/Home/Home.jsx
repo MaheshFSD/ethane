@@ -1,17 +1,22 @@
 import React from "react";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Navbar } from "../Navbar/Navbar";
 import styled from "styled-components"
 import { get_home } from "../../Redux/home/action";
 import { Footer } from "../Footer/Footer";
+import styles from "./Home.module.css"
+import { getData } from "../../utils/utils";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Home = () => {
 
   const dispatch = useDispatch()
     const {isLoading, error, homeNews} = useSelector(state => state.home)
+    const [trending,setTrending]=React.useState([])
     const history = useHistory()
+    let {handleMockState,handleMockData,handleIdMock}=React.useContext(AuthContext)
 
     const get_data = () => {
         dispatch(get_home())
@@ -19,15 +24,38 @@ const Home = () => {
 
     useEffect(() => {
         get_data()
+        getData()
+        .then(res=>{
+            setTrending(res.data)
+            handleMockData(res.data)
+        })
     }, [dispatch])
 
     const goToLink = (data) => {
         history.push(`/home/${data}`)
+        handleMockState(false)
+    }
+    const goToLinkMock = (data) => {
+        history.push(`/home/${data}`)
+        handleMockState(true)
+        handleIdMock(data)
+        
+        
     }
   
     return isLoading ? <Loading></Loading> :(
       <>
       <Navbar />
+      <div className={styles.trending}>
+        <span style={{color:"red"}} >COVID-19: </span>
+        <span>Live Updates</span>
+        <span>Vaccinations by Country</span>
+        <span style={{color:"red"}} >TRENDING: </span>
+        {
+            trending?.map((item)=><span onClick={()=>goToLinkMock(item.id)} {...item} trend={true} key={item.id} >{item.heading}</span>)
+        }
+        
+      </div>
       <MainContainer>
 
           <TopNewsContainer>
@@ -36,7 +64,7 @@ const Home = () => {
                   <img src = "https://s.yimg.com/uu/api/res/1.2/4148lV0Gc.a_NK8g.N1egA--~B/aD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u/https://s.yimg.com/os/creatr-uploaded-images/2021-02/38b44370-7840-11eb-9dff-c6bc9a7d303a.cf.jpg"></img>
                   {homeNews.slice(0, 6).map(item => (
                   <div key={item.id}>
-                      <p onClick={() => goToLink(item.publishedAt)}>{item.title}</p>
+                      <p onClick={() => goToLink(item.publishedAt)}  >{item.title}</p>
                       <hr></hr>
                   </div>
               ))}

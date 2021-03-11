@@ -5,7 +5,9 @@ export const AuthContextProvider = ({children})=>{
     const [isAuth,setIsAuth]=React.useState(true)
     const [token,setToken]=React.useState("")
     const [language,setLanguage]=React.useState("en")
-    const [topic,setTopic]=React.useState("")
+    const [mock,setMock]=React.useState(false)
+    const [idMock,setIdMock]=React.useState()
+    const [mockData,setMockData]=React.useState([])
     const inputRef=React.useRef(null)
 
     const loginSuccess = (value)=>{
@@ -16,23 +18,33 @@ export const AuthContextProvider = ({children})=>{
         setToken("")
         setIsAuth(false)
     }
+    const handleMockState = (s) => {
+        setMock(s)
+    }
+    const handleIdMock = (stat) => {
+        setIdMock(stat)
+    }
+    const handleMockData = (stat) => {
+        setMockData(stat)
+    }
     const handleLanguage = (lan)=>{
         setLanguage(lan)
         console.log(" language -",lan)
-    }
-    const handleTopic = (topic)=>{
-        setTopic(topic)
     }
     const value={
         isAuth,
         token,
         inputRef, 
         language,
-        topic,
+        mock,
+        idMock,
+        mockData,
         loginSuccess,
         logout,
         handleLanguage,
-        handleTopic
+        handleMockState,
+        handleIdMock,
+        handleMockData
     }
     return <AuthContext.Provider value={value} > {children} </AuthContext.Provider>
 }

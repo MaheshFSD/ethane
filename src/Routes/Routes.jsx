@@ -24,6 +24,7 @@ import { Middle } from "../Components/World/Pages/Middle";
 import { Error } from "../Components/Error/Error";
 import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
 import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
+import { Profile } from "../Components/Profile/Profile";
 import { AfricaDetails } from "../Components/World/Pages/AfricaDetails";
 
 const Routes = () => {
@@ -112,9 +113,14 @@ const Routes = () => {
         <Route>
           <Error></Error>
         </Route>
-      </Switch>
+
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+      </Switch>   
     </div>
-  );
-};
+    )
+}
+
 
 export { Routes };

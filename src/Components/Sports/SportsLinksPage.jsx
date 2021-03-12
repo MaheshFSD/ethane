@@ -33,7 +33,7 @@ console.log("from article page")
             <h3>By {item.author}, CNN</h3>
             <p>Updated {item.publishedAt}</p>
             <div>
-              <img src={item.urlToImage} />
+              <img src={item.urlToImage} alt="logo" />
             </div>
             <br></br>
             <HealthStory>

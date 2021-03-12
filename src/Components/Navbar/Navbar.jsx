@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
+import {useContext} from "react"
+import { useDispatch, useSelector } from "react-redux";
+import { AuthContext } from "../../Context/AuthContext";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { navDropMenu } from "../../Redux/SearchPage/action";
+
 
 const links1 = [
   {
@@ -62,6 +68,20 @@ const links2 = [
   },
 ];
 const Navbar = () => {
+
+  const [selectedLang, setSelectedLang] = useState("")
+  const {handleLanguage} = useContext(AuthContext)
+
+  // console.log(selectedLang)
+  handleLanguage(selectedLang)
+  // 
+  const handleChange = (e) => {
+    let {value} = e.target 
+    setSelectedLang(value)
+  }
+
+  const dispatch = useDispatch()
+  const menu = useSelector((state) => state.search.menu)
   return (
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
@@ -75,23 +95,24 @@ const Navbar = () => {
         ))}
       </div>
       <div className={styles.rightmenu}>
-        <Link to="/edition">
-          <select>
-            <option defaultValue>Edition</option>
-            <option>U.S.</option>
-            <option>International</option>
-            <option>Arabic</option>
-            <option>Espanol</option>
-          </select>
-        </Link>
+        
+      <select value={selectedLang} onChange={handleChange}>
+        <option defaultValue hidden>Edition</option>
+        <option value="en">English</option>
+        <option value="ar">عربي</option>
+        <option value="sp">Español</option>
+      </select>
+
         <Link className={styles.search} to="/footer">
           <BsSearch />
         </Link>
-        <Link className={styles.search} to="/profile">
+        <Link className={styles.search} to="/login">
           <CgProfile />
         </Link>
-        <Link className={styles.search} to="/footer">
-          <AiOutlineMenu />
+        <Link className={styles.search}>
+        <button onClick={() => dispatch(navDropMenu())}  style={{backgroundColor:"transparent", border:"none", outline:"none"}}>
+          {!menu? <AiOutlineMenu style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>: <AiOutlineClose style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>}
+        </button>
         </Link>
       </div>
     </div>

@@ -1,14 +1,21 @@
-
-import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import { BusinessReducer, HeadlinesReducer } from './Business/reducer'
-import thunk from "redux-thunk";
-import { StyleReducer } from "./styles/reducer";
-import { WorldReducer } from "./world/reducer";
-import {reducer as healthReducer} from "./health/reducer"
-import {reducer as homeReducer} from "./home/reducer"
-import {reducer as sportsReducer} from "./sports/reducer"
+import thunk from 'redux-thunk'
+import { StyleReducer } from './styles/reducer'
+import { WorldReducer } from './world/reducer'
+import { reducer as healthReducer } from './health/reducer'
+import { reducer as homeReducer } from './home/reducer'
+
 import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
-import { SearchReducer } from "./SearchPage/reducer";
+import { EntertainmentReducer } from '../Redux/Entertainment/reducer'
+
+import { SearchReducer } from './SearchPage/reducer'
+
+import { reducer as sportsReducer } from './sports/reducer'
+
+import { regReducer } from './registration/reducer'
+import { authReducer } from './auth/reducer'
+import { ProfileReducer } from './profile/reducer'
 
 const rootReducer = combineReducers({
   world: WorldReducer,
@@ -19,9 +26,14 @@ const rootReducer = combineReducers({
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
-  search: SearchReducer
-});
+  search: SearchReducer,
+  entertainment: EntertainmentReducer,
 
+  registration: regReducer,
+  auth: authReducer,
+
+  profile: ProfileReducer,
+})
 
 const composeEnhancers =
   (typeof window !== 'undefined' &&

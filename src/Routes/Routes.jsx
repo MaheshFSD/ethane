@@ -30,6 +30,11 @@ import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StickyTop } from '../Components/Home/StickyTop'
+import { EntertainmentCard } from '../Components/Entertainment/EntertainmentCard'
+import { EditEntertainment } from '../Components/Entertainment/EditEnternainment'
+import { PrivateRoute } from './PrivateRoute'
+import { Login } from '../Components/Profile/Login'
+import { Registration } from '../Components/Profile/Registration'
 
 const Routes = () => {
   return (
@@ -47,12 +52,14 @@ const Routes = () => {
         <Route exact path='/uspolitics'>
           <UsPolitics />
         </Route>
+
         <Route exact path='/business'>
           <Navbar />
-          <Business />          
+          <Business />
         </Route>
         <Route exact path='/business/:publishedAt'>
           <Navbar />
+
           <BusinessCard />
         </Route>
         <Route exact path='/health'>
@@ -62,8 +69,18 @@ const Routes = () => {
           <HealthLinksPage />
         </Route>
         <Route exact path='/entertainment'>
+          <Navbar />
           <Entertainment />
         </Route>
+        <Route exact path='/entertainment/:publishedAt'>
+          <Navbar />
+          <EntertainmentCard />
+        </Route>
+        <Route exact path='/edit/:id'>
+          <Navbar />
+          <EditEntertainment />
+        </Route>
+
         <Route exact path='/style'>
           <StylePage />
         </Route>
@@ -72,9 +89,9 @@ const Routes = () => {
         </Route>
         <Route exact path='/sports'>
           <Sports />
-          <Route exact path='/sports/:publishedAt'>
-          <SportsLinksPage />
         </Route>
+        <Route exact path='/sports/:publishedAt'>
+          <SportsLinksPage />
         </Route>
         <Route exact path='/videos'>
           <Videos />
@@ -91,51 +108,56 @@ const Routes = () => {
         <Route path='/africa/:id'>
           <AfricaDetails></AfricaDetails>
         </Route>
-        <Route path="/searchpage" >
+
+        <Route path='/searchpage'>
           <StickyTop />
         </Route>
 
-        <Route path="/africa" exact>
+        <Route path='/africa' exact>
           <Africa></Africa>
         </Route>
-        <Route path="/america" exact>
+        <Route path='/america' exact>
           <America></America>
         </Route>
-        {/* <Route path="/america/:id">
+        {/* <Route path='/america/:id'>
           <AmericaDetails></AmericaDetails>
         </Route> */}
-        <Route path="/asia" exact>
+        <Route path='/asia' exact>
           <Asia></Asia>
         </Route>
 
-        {/* <Route path="/asia/:id" exact>
+        {/* <Route path='/asia/:id' exact>
           <AsiaDetails></AsiaDetails>
         </Route> */}
-        <Route path="/australia" exact>
+        <Route path='/australia' exact>
           <Australia></Australia>
         </Route>
-        <Route path="/china" exact>
+        <Route path='/china' exact>
           <China></China>
         </Route>
-        <Route path="/europe" exact>
+        <Route path='/europe' exact>
           <Europe></Europe>
         </Route>
-        <Route path="/india" exact>
+        <Route path='/india' exact>
           <India></India>
         </Route>
-        <Route path="/middleeast" exact>
-
+        <Route path='/middleeast' exact>
           <Middle></Middle>
         </Route>
 
-        <Route path="/unitedkingdom" exact>
-
+        <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
-        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
-        <Route exact path='/profile'>
-          <Profile />
+        <PrivateRoute exact path='/profile'>
+          <Profile></Profile>
+        </PrivateRoute>
+        <Route path='/login' exact>
+          <Login></Login>
         </Route>
+        <Route path='/registration'>
+          <Registration></Registration>
+        </Route>
+        <PrivateRoute path='/profile'></PrivateRoute>
         <Route>
           <Error></Error>
         </Route>

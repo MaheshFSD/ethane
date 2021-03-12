@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SEARCH_DATA_REQUEST,  SEARCH_REQUEST_FAILURE, SEARCH_REQUEST_SUCCESS } from "./actionType"
+import { NAV_DROP_MENU, SEARCH_DATA_REQUEST,  SEARCH_REQUEST_FAILURE, SEARCH_REQUEST_SUCCESS } from "./actionType"
 
 const searchDataRequest = () => {
     return {
@@ -20,7 +20,11 @@ const searchRequestFailure = () => {
     }
 }
 
-
+const navDropMenu = () => {
+    return {
+        type: NAV_DROP_MENU
+    }
+}
 const getSearchData = (payload) => (dispatch) => {
     dispatch(searchDataRequest());
     return axios.get(`http://newsapi.org/v2/everything?q=${payload}&from=2021-03-10&sortBy=publishedAt&apiKey=afb0ad80492b485db131d463da513064`)
@@ -40,4 +44,4 @@ const getSearchData = (payload) => (dispatch) => {
 //     .catch(err => dispatch(searchRequestFailure()))
 // }
 
-export {getSearchData}
+export {getSearchData, navDropMenu}

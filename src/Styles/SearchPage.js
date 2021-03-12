@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StickyBar = styled.div `
 // position: fixed;
-width:70%;
+width:72%;
 margin: auto;
 background-color: white;
 `
@@ -10,18 +10,22 @@ export const Top = styled.div `
 border-bottom: 1px solid grey;
 `
 export const Input = styled.input `
-width:95%;
+width:90%;
 height: 45px;
 border:1px solid grey;
 position: relative;
 `
 export const SearchButton = styled.button `
 height: 35px;
-width: 40px;
-margin-top:25px;
+width:4%;
+margin-top:50px;
 background-color: red;
-color:white;
 border: none;
+`
+
+export const SearchContainer = styled.div `
+display: flex;
+align-items: center;
 `
 
 export const StoryType = styled.div `
@@ -41,15 +45,21 @@ width: 80%;
 margin: auto;
 `
 export const Categories = styled.div `
-width: 25%;
+width: 30%;
 margin: 20px;
 font-size: 18px;
 `
 
 export const News = styled.div `
-width: 75%;
+width: 90%;
 display: flex;
+border-top: 1px solid grey;
+margin:20px 0px;
 padding:20px;
+input {
+    margin: 20px 0px;
+    padding:10px;
+}
 img {
     width: 250px;
     height:200px;
@@ -58,6 +68,7 @@ img {
 h2 {
     margin-top: 0;
 }
+
 div p {
     height: 80px;
     overflow: hidden;

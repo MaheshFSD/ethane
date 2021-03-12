@@ -11,6 +11,7 @@ export const EditEntertainment = () => {
   let entertainmentNews = useSelector(
     (state) => state.entertainment.entertainmentNews
   )
+  // eslint-disable-next-line eqeqeq
   let item = entertainmentNews.find((el) => el.id == id)
   let [editState, setEditState] = useState('')
   let [editimage, setEditImage] = useState('')

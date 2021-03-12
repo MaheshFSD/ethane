@@ -138,15 +138,27 @@ export const edit_entertainmentAxios = ({ id, title }) => (dispatch) => {
 
 // //delete
 
-// export const delete_entertainmentAxios = ({ id }) => async (dispatch) => {
-//   dispatch(editEntertainmentRequest())
-//   try {
-//     const res = await axios.delete(
-//       `https://json-server-shrayank.herokuapp.com/entertainment/${id}`
-//     )
-//     dispatch(editEntertainmentSuccess())
-//     return { success: true }
-//   } catch (err) {
-//     dispatch(editEntertainmentFailure())
-//   }
-// }
+export const delete_entertainmentAxios = (id) => (dispatch) => {
+  // dispatch(deleteEntertainmentRequest())
+  // try {
+  //   const res = await axios.delete(
+  //     `https://json-server-shrayank.herokuapp.com/entertainment/${id}`
+  //   )
+  //   dispatch(deleteEntertainmentSuccess())
+  //   return { success: true }
+  // } catch (err) {
+  //   dispatch(deleteEntertainmentFailure())
+  // }
+
+  // dispatch(deleteEntertainmentRequest())
+
+  axios
+    .delete(`https://json-server-shrayank.herokuapp.com/entertainment/${id}`)
+    .then((res) => {
+      dispatch(deleteEntertainmentSuccess())
+      dispatch(getentertainmentAxios())
+    })
+    .catch((err) => {
+      dispatch(deleteEntertainmentFailure())
+    })
+}

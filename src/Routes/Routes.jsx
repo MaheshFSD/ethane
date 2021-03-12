@@ -25,7 +25,7 @@ import { Middle } from '../Components/World/Pages/Middle'
 import { Error } from '../Components/Error/Error'
 import { HealthLinksPage } from '../Components/Health/HealthLinksPage'
 import { HomeLinksPage } from '../Components/Home/HomeLinksPage'
-// import { Profile } from '../Components/Profile/Profile'
+import { Profile } from '../Components/Profile/Profile'
 import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
@@ -151,9 +151,9 @@ const Routes = () => {
         <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
-        {/* <PrivateRoute exact path='/profile'>
+        <PrivateRoute exact path='/profile'>
           <Profile></Profile>
-        </PrivateRoute> */}
+        </PrivateRoute>
         <Route path='/login' exact>
           <Login></Login>
         </Route>

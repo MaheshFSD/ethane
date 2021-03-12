@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop'
 import Fade from '@material-ui/core/Fade'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { add_entertainmentAxios } from '../../Redux/Entertainment/action'
 import styled from 'styled-components'
@@ -26,7 +26,9 @@ export const AddEntertainment = () => {
   const [title, setTitle] = useState('')
   const [image, setImage] = useState('')
   const [time, setTime] = useState('')
-  const isAdmin = true
+  var username = useSelector((state) => state.profile.data[0].username)
+
+  const isAdmin = username == 'admin'
 
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)

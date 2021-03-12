@@ -11,20 +11,20 @@ export const EditEntertainment = () => {
   let entertainmentNews = useSelector(
     (state) => state.entertainment.entertainmentNews
   )
-  let item = entertainmentNews.find((el) => el.id === id)
+  let item = entertainmentNews.find((el) => el.id == id)
   let [editState, setEditState] = useState('')
   let [editimage, setEditImage] = useState('')
 
   useEffect(() => {
     if (!item) {
-      history.push('/')
+      history.push('/entertainment')
     } else {
       setEditState(item.title)
       setEditImage(item.urlToImage)
     }
   }, [])
 
-  console.log(item, entertainmentNews, id)
+  console.log(item)
 
   const editNews = async (e) => {
     e.preventDefault()
@@ -63,7 +63,10 @@ export const EditEntertainment = () => {
 }
 const Form = styled.form`
   margin-top: 100px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 50px;
+  background-color: lightgrey;
+
   width: 50%;
   margin: auto;
   height: 500px;
@@ -72,6 +75,18 @@ const Form = styled.form`
     width: 70%;
     height: 50px;
     margin: 10px;
+  }
+  button {
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-top: 10px;
+  }
+  h3 {
+    padding-top: 80px;
   }
 `
 const Wrapper = styled.div`

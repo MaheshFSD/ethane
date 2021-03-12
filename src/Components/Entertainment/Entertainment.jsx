@@ -5,7 +5,10 @@ import styled from 'styled-components'
 import { Footer } from '../Footer/Footer'
 
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { getentertainmentAxios } from '../../Redux/Entertainment/action'
+import {
+  getentertainmentAxios,
+  delete_entertainmentAxios,
+} from '../../Redux/Entertainment/action'
 import { AddEntertainment } from './AddEnternainment'
 import { useHistory } from 'react-router-dom'
 import { BsPencilSquare } from 'react-icons/bs'
@@ -13,7 +16,12 @@ import { AiFillDelete } from 'react-icons/ai'
 
 const Entertainment = () => {
   const dispatch = useDispatch()
-  const isAdmin = false
+
+  var username = useSelector((state) => state.profile.data[0].username)
+
+  const isAdmin = username == 'admin'
+  // console.log(username)
+  console.log(isAdmin)
   // console.log(dispatch(business()))
 
   const { entertainmentNews, isLoading } = useSelector(
@@ -27,7 +35,9 @@ const Entertainment = () => {
   const edit = (id) => {
     history.push(`/edit/${id}`)
   }
-  const deleting = (id) => {}
+  const deleting = (id) => {
+    dispatch(delete_entertainmentAxios(id))
+  }
 
   useEffect(() => {
     dispatch(getentertainmentAxios())
@@ -90,7 +100,7 @@ const Entertainment = () => {
                 <BsPencilSquare onClick={() => edit(item.id)}></BsPencilSquare>
               )}
               {isAdmin && (
-                <AiFillDelete onClick={deleting(item.id)}></AiFillDelete>
+                <AiFillDelete onClick={() => deleting(item.id)}></AiFillDelete>
               )}
               <img
                 src={item.urlToImage}

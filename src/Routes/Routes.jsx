@@ -148,7 +148,7 @@ const Routes = () => {
         <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
-        <PrivateRoute exact path='/profile'>
+        {/* <PrivateRoute exact path="/profile">
           <Profile></Profile>
         </PrivateRoute>
         <Route path='/login' exact>
@@ -156,8 +156,8 @@ const Routes = () => {
         </Route>
         <Route path='/registration'>
           <Registration></Registration>
-        </Route>
-        <PrivateRoute path='/profile'></PrivateRoute>
+        </Route> */}
+        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
         <Route>
           <Error></Error>
         </Route>

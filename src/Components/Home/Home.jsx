@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import { Navbar } from "../Navbar/Navbar";
 import styled from "styled-components"
 import { get_home } from "../../Redux/home/action";
@@ -9,10 +9,12 @@ import { Footer } from "../Footer/Footer";
 import styles from "./Home.module.css"
 import { getData } from "../../utils/utils";
 import { AuthContext } from "../../Context/AuthContext";
+import { getSearchData } from "../../Redux/SearchPage/action";
 
 const Home = () => {
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const menu = useSelector((state) => state.search.menu)
     const {isLoading, error, homeNews} = useSelector(state => state.home)
     const [trending,setTrending]=React.useState([])
     const history = useHistory()
@@ -38,18 +40,23 @@ const Home = () => {
     const goToLinkMock = (data) => {
         history.push(`/home/${data}`)
         handleMockState(true)
-        handleIdMock(data)
+        handleIdMock(data)    
         
-        
+    }
+    const handleSearch = (key)=>{
+        console.log("key   "+key)
+        dispatch(getSearchData(key))
+        history.push(`/searchpage`)
     }
   
     return isLoading ? <Loading></Loading> :(
       <>
       <Navbar />
+      {menu? (<div style={{position:"fixed", marginTop:"0px", width:"100%", zIndex:"10"}}><Footer/></div>):null}
       <div className={styles.trending}>
-        <span style={{color:"red"}} >COVID-19: </span>
-        <span>Live Updates</span>
-        <span>Vaccinations by Country</span>
+        <span onClick={()=>handleSearch("Covid")} style={{color:"red"}} >COVID-19: </span>
+        <span onClick={()=>handleSearch("Covid")}>Live Updates</span>
+        <span onClick={()=>handleSearch("Vaccination in all countries")}>Vaccinations by Country</span>
         <span style={{color:"red"}} >TRENDING: </span>
         {
             trending?.map((item)=><span onClick={()=>goToLinkMock(item.id)} {...item} trend={true} key={item.id} >{item.heading}</span>)
@@ -196,7 +203,7 @@ const Home = () => {
           <GridCardContainer>
               {homeNews.map(item => (
                   <div key={item.id}>
-                      <img src = {item.urlToImage}/>
+                      <img src = {item.urlToImage} alt="logo sports" />
                       <div><p onClick={() => goToLink(item.publishedAt)}>{item.title}</p></div>
                   </div>
               ))}

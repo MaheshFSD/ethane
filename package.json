@@ -8,6 +8,7 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "font-awesome": "^4.7.0",
     "i18next": "^19.9.2",
     "i18next-browser-languagedetector": "^6.0.1",

@@ -1,15 +1,12 @@
-import './App.css'
-// import World from "./Components/Pages/World";
-import { Routes } from './Routes/Routes'
-
-// import StylePage from './Components/Style/StylePage';
+import "./App.css";
+import { Routes } from "./Routes/Routes";
 
 function App() {
   return (
-    <div className='App'>
+    <div className="App">
       <Routes />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

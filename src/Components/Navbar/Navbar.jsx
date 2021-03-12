@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
-import { useContext } from "react";
+import {useContext} from "react"
+import { useDispatch, useSelector } from "react-redux";
 import { AuthContext } from "../../Context/AuthContext";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { navDropMenu } from "../../Redux/SearchPage/action";
+
 
 const links1 = [
   {
@@ -77,6 +80,8 @@ const Navbar = () => {
     setSelectedLang(value)
   }
 
+  const dispatch = useDispatch()
+  const menu = useSelector((state) => state.search.menu)
   return (
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
@@ -101,11 +106,13 @@ const Navbar = () => {
         <Link className={styles.search} to="/footer">
           <BsSearch />
         </Link>
-        <Link className={styles.search} to="/profile">
+        <Link className={styles.search} to="/login">
           <CgProfile />
         </Link>
-        <Link className={styles.search} to="/footer">
-          <AiOutlineMenu />
+        <Link className={styles.search}>
+        <button onClick={() => dispatch(navDropMenu())}  style={{backgroundColor:"transparent", border:"none", outline:"none"}}>
+          {!menu? <AiOutlineMenu style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>: <AiOutlineClose style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>}
+        </button>
         </Link>
       </div>
     </div>

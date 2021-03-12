@@ -14,6 +14,7 @@ import { StickyTop } from "../Home/StickyTop";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getSearchData } from "../../Redux/SearchPage/action";
+import { Redirect } from "react-router";
 
 const Footer = () => {
   const [search, setSearch] = React.useState(false)
@@ -185,7 +186,7 @@ const Footer = () => {
         </FooterFooter>
       </FooterContentContainer>
     </FooterWrapper>
-  ):(<StickyTop/>));
+  ):(<Redirect to="/searchpage"/>));
 };
 
 export { Footer };

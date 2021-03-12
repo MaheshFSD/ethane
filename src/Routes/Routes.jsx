@@ -8,6 +8,7 @@ import { Entertainment } from '../Components/Entertainment/Entertainment'
 import { StylePage } from '../Components/Style/StylePage'
 import { Travel } from '../Components/Travel/Travel'
 import { Sports } from '../Components/Sports/Sports'
+import { SportsLinksPage } from '../Components/Sports/SportsLinksPage'
 import { Videos } from '../Components/Videos/Videos'
 import { World } from '../Components/World/World'
 import { Footer } from '../Components/Footer/Footer'
@@ -48,12 +49,14 @@ const Routes = () => {
         <Route exact path='/uspolitics'>
           <UsPolitics />
         </Route>
+
         <Route exact path='/business'>
           <Navbar />
           <Business />
         </Route>
         <Route exact path='/business/:publishedAt'>
           <Navbar />
+
           <BusinessCard />
         </Route>
         <Route exact path='/health'>
@@ -84,6 +87,9 @@ const Routes = () => {
         <Route exact path='/sports'>
           <Sports />
         </Route>
+        <Route exact path='/sports/:publishedAt'>
+          <SportsLinksPage />
+        </Route>
         <Route exact path='/videos'>
           <Videos />
         </Route>
@@ -99,6 +105,7 @@ const Routes = () => {
         <Route path='/africa/:id'>
           <AfricaDetails></AfricaDetails>
         </Route>
+
         <Route path='/searchpage'>
           <StickyTop />
         </Route>
@@ -141,13 +148,18 @@ const Routes = () => {
         <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
+        {/* <PrivateRoute exact path="/profile">
+          <Profile></Profile>
+        </PrivateRoute>
+        <Route path="/login" exact>
+          <Login></Login>
+        </Route>
+        <Route path="/registration">
+          <Registration></Registration>
+        </Route> */}
         {/* <PrivateRoute path="/profile"></PrivateRoute> */}
         <Route>
           <Error></Error>
-        </Route>
-
-        <Route exact path='/profile'>
-          <Profile />
         </Route>
       </Switch>
     </div>

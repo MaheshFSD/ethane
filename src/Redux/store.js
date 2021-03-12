@@ -11,16 +11,28 @@ import { EntertainmentReducer } from '../Redux/Entertainment/reducer'
 
 import { SearchReducer } from './SearchPage/reducer'
 
+import { reducer as sportsReducer } from './sports/reducer'
+
+import { regReducer } from './registration/reducer'
+import { authReducer } from './auth/reducer'
+import { ProfileReducer } from './profile/reducer'
+
 const rootReducer = combineReducers({
   world: WorldReducer,
   style: StyleReducer,
   health: healthReducer,
   home: homeReducer,
+  sports: sportsReducer,
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
   search: SearchReducer,
   entertainment: EntertainmentReducer,
+
+  registration: regReducer,
+  auth: authReducer,
+  search: SearchReducer,
+  profile: ProfileReducer,
 })
 
 const composeEnhancers =

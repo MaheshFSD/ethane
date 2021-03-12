@@ -19,7 +19,7 @@ import { Navbar } from "../Navbar/Navbar";
   }
 
   const goToLink = (data) => {
-    history.push(`/health/${data}`);
+    history.push(`/sports/${data}`);
   };
 
   return (

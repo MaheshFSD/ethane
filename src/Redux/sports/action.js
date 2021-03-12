@@ -22,7 +22,7 @@ export const get_sports_failure = () => {
 
 export const get_sports = payload => dispatch => {
     dispatch(get_sports_request())
-    axios.get(`https://newsapi.org/v2/top-headlines?language=en&category=sports&apiKey=${process.env.REACT_APP_UNSPLASH_KEY}`)
+    axios.get(`https://newsapi.org/v2/everything?language=en&q=sports&apiKey=${process.env.REACT_APP_UNSPLASH_KEY}`)
         .then(res =>dispatch(get_sports_success(res.data.articles)))
         .catch(err => dispatch(get_sports_failure()))
 }

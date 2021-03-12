@@ -19,7 +19,7 @@ export const reducer = (state = initState, {type, payload}) => {
             return {
                 ...state,
                 isLoading: false,
-                homeNews: payload
+                sportsNews: payload
             }
 
         case GET_SPORTS_FAILURE:

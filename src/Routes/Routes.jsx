@@ -26,9 +26,15 @@ import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
 import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
 import { Profile } from "../Components/Profile/Profile";
 import { AfricaDetails } from "../Components/World/Pages/AfricaDetails";
-import { AsiaDetails } from "../Components/World/Pages/AsiaDetails";
 import { AmericaDetails } from "../Components/World/Pages/AmericaDetails";
+import { AsiaDetails } from "../Components/World/Pages/AsiaDetails";
 import { BusinessCard } from "../Components/Business/BusinessCard";
+import { Registration } from "../Components/Profile/Registration";
+import { Login } from "../Components/Profile/Login";
+import { PrivateRoute } from "./PrivateRoute";
+
+import { Navbar } from "../Components/Navbar/Navbar";
+import { StickyTop } from "../Components/Home/StickyTop";
 
 const Routes = () => {
   return (
@@ -46,10 +52,14 @@ const Routes = () => {
         <Route exact path="/uspolitics">
           <UsPolitics />
         </Route>
+
         <Route exact path="/business">
+          <Navbar />
           <Business />
         </Route>
         <Route exact path="/business/:publishedAt">
+          <Navbar />
+
           <BusinessCard />
         </Route>
         <Route exact path="/health">
@@ -86,22 +96,26 @@ const Routes = () => {
           <AfricaDetails></AfricaDetails>
         </Route>
 
+        <Route path="/searchpage">
+          <StickyTop />
+        </Route>
+
         <Route path="/africa" exact>
           <Africa></Africa>
         </Route>
         <Route path="/america" exact>
           <America></America>
         </Route>
-        <Route path="/america/:id">
+        {/* <Route path="/america/:id">
           <AmericaDetails></AmericaDetails>
-        </Route>
+        </Route> */}
         <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
 
-        <Route path="/asia/:id" exact>
+        {/* <Route path="/asia/:id" exact>
           <AsiaDetails></AsiaDetails>
-        </Route>
+        </Route> */}
         <Route path="/australia" exact>
           <Australia></Australia>
         </Route>
@@ -124,16 +138,18 @@ const Routes = () => {
         <Route path="/unitedkingdom" exact>
           <Middle></Middle>
         </Route>
-        <Route path="/profile">
+        <PrivateRoute exact path="/profile">
           <Profile></Profile>
+        </PrivateRoute>
+        <Route path="/login" exact>
+          <Login></Login>
         </Route>
-
+        <Route path="/registration">
+          <Registration></Registration>
+        </Route>
+        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
         <Route>
           <Error></Error>
-        </Route>
-
-        <Route exact path="/profile">
-          <Profile />
         </Route>
       </Switch>
     </div>

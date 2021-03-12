@@ -74,7 +74,7 @@ const WorldNavBar = () => {
         <Link className={styles.search} to="/footer">
           <BsSearch />
         </Link>
-        <Link className={styles.search} to="/profile">
+        <Link className={styles.search} to="/login">
           <CgProfile />
         </Link>
         <Link className={styles.search} to="/footer">

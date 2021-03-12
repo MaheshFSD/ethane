@@ -1,14 +1,17 @@
 import React from "react"
+import { useDispatch } from "react-redux"
+import { get_health } from "../Redux/health/action"
 export const AuthContext = React.createContext()
 
 export const AuthContextProvider = ({children})=>{
     const [isAuth,setIsAuth]=React.useState(true)
     const [token,setToken]=React.useState("")
-    const [language,setLanguage]=React.useState("en")
+    let [language,setLanguage]=React.useState("en")
     const [mock,setMock]=React.useState(false)
     const [idMock,setIdMock]=React.useState()
     const [mockData,setMockData]=React.useState([])
     const inputRef=React.useRef(null)
+    const dispatch = useDispatch()
 
     const loginSuccess = (value)=>{
         setToken(value);
@@ -28,8 +31,11 @@ export const AuthContextProvider = ({children})=>{
         setMockData(stat)
     }
     const handleLanguage = (lan)=>{
+        // console.log(lan)
         setLanguage(lan)
-        console.log(" language -",lan)
+        // dispatch(get_health(lan))
+        // console.log(" language -",lan)
+        
     }
     const value={
         isAuth,

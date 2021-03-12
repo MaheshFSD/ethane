@@ -58,7 +58,7 @@ const Routes = () => {
         <Route exact path='/health'>
           <Health />
         </Route>
-        <Route exact path='/health/:publishedAt'>
+        <Route exact path='/health/:title'>
           <HealthLinksPage />
         </Route>
         <Route exact path='/entertainment'>
@@ -96,16 +96,12 @@ const Routes = () => {
         <Route path="/america" exact>
           <America></America>
         </Route>
-        <Route path="/america/:id">
-          <AmericaDetails></AmericaDetails>
-        </Route>
+        
         <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
 
-        <Route path="/asia/:id" exact>
-          <AsiaDetails></AsiaDetails>
-        </Route>
+        
         <Route path="/australia" exact>
           <Australia></Australia>
         </Route>

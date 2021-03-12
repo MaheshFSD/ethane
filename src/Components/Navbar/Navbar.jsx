@@ -4,6 +4,9 @@ import styles from "./Navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const links1 = [
   {
@@ -62,6 +65,18 @@ const links2 = [
   },
 ];
 const Navbar = () => {
+
+  const [selectedLang, setSelectedLang] = useState("")
+  const {handleLanguage} = useContext(AuthContext)
+
+  // console.log(selectedLang)
+  handleLanguage(selectedLang)
+  // 
+  const handleChange = (e) => {
+    let {value} = e.target 
+    setSelectedLang(value)
+  }
+
   return (
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
@@ -75,15 +90,14 @@ const Navbar = () => {
         ))}
       </div>
       <div className={styles.rightmenu}>
-        <Link to="/edition">
-          <select>
-            <option defaultValue>Edition</option>
-            <option>U.S.</option>
-            <option>International</option>
-            <option>Arabic</option>
-            <option>Espanol</option>
-          </select>
-        </Link>
+        
+      <select value={selectedLang} onChange={handleChange}>
+        <option defaultValue hidden>Edition</option>
+        <option value="en">English</option>
+        <option value="ar">عربي</option>
+        <option value="sp">Español</option>
+      </select>
+
         <Link className={styles.search} to="/footer">
           <BsSearch />
         </Link>

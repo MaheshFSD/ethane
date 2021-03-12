@@ -29,7 +29,7 @@ const Home = () => {
             setTrending(res.data)
             handleMockData(res.data)
         })
-    }, [dispatch])
+    }, [])
 
     const goToLink = (data) => {
         history.push(`/home/${data}`)

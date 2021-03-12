@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import { BsSearch } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { dropMenu, navDropMenu } from "../../Redux/SearchPage/action";
+import { useDispatch, useSelector } from "react-redux";
 
 const links1 = [
   {
@@ -62,6 +64,8 @@ const links2 = [
   },
 ];
 const Navbar = () => {
+  const dispatch = useDispatch()
+  const menu = useSelector((state) => state.search.menu)
   return (
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
@@ -90,8 +94,10 @@ const Navbar = () => {
         <Link className={styles.search} to="/profile">
           <CgProfile />
         </Link>
-        <Link className={styles.search} to="/footer">
-          <AiOutlineMenu />
+        <Link className={styles.search}>
+        <button onClick={() => dispatch(navDropMenu())}  style={{backgroundColor:"transparent", border:"none", outline:"none"}}>
+          {!menu? <AiOutlineMenu style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>: <AiOutlineClose style={{color:"white", fontSize:"20px", fontWeight:"bold"}}/>}
+        </button>
         </Link>
       </div>
     </div>

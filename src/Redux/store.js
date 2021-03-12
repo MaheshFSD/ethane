@@ -8,17 +8,10 @@ import { reducer as healthReducer } from "./health/reducer";
 import { reducer as homeReducer } from "./home/reducer";
 import { regReducer } from "./registration/reducer";
 import { authReducer } from "./auth/reducer";
-
-
-import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
-import { SearchReducer } from "./SearchPage/reducer";
-
-
-
-
-
+import { ProfileReducer } from "./profile/reducer";
 
 import { FinanceReducer } from "../Redux/Business/Finance/financeReducer";
+import { SearchReducer } from "./SearchPage/reducer";
 
 const rootReducer = combineReducers({
   world: WorldReducer,
@@ -30,8 +23,8 @@ const rootReducer = combineReducers({
   headline: HeadlinesReducer,
   registration: regReducer,
   auth: authReducer,
-  search: SearchReducer
-
+  search: SearchReducer,
+  profile: ProfileReducer,
 });
 
 const composeEnhancers =

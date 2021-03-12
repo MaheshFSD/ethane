@@ -27,7 +27,7 @@ const Login = () => {
         if (!res) {
           alert("login Success");
 
-          dispatch(loginSuccess());
+          // dispatch(loginSuccess());
         } else if (res) {
           alert("invalid");
           console.log(res);
@@ -35,6 +35,7 @@ const Login = () => {
       });
     }
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserLoginData({ ...userLoginData, [name]: value });
@@ -45,10 +46,6 @@ const Login = () => {
         <div
           style={{
             borderRadius: "50%",
-            // width: "120px",
-            // height: "120px",
-            // border: "1px solid red",
-            // backgroundColor: "#dbdbdb",
             display: "flex",
             alignItems: "center",
             marginTop: "50px",
@@ -57,7 +54,6 @@ const Login = () => {
           <IoPersonCircleSharp
             style={{
               borderRadius: "50%",
-
               fontSize: "100px",
               border: "2px solid #ccc",
               color: "#303030",

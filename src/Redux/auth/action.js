@@ -1,5 +1,6 @@
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType";
 import axios from "axios";
+
 const loginRequest = () => {
   return {
     type: LOGIN_REQUEST,
@@ -28,11 +29,13 @@ const loginUser = (payload) => (dispatch) => {
     .post("http://localhost:8080/auth/login", payload)
     .then((res) => {
       const { error } = res.data;
-      const successAction = loginSuccess({
-        username: payload.username,
-        token: res.data.token,
-      });
-      dispatch(successAction);
+
+      dispatch(
+        loginSuccess({
+          username: payload.username,
+          token: res.data.token,
+        })
+      );
       return error;
     })
     .catch((err) => {

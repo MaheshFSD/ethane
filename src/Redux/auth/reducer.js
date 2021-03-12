@@ -1,10 +1,10 @@
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionType";
 
-import { loadData } from "../../utils/localStorage";
+import { loadData, saveData } from "../../utils/localStorage";
 const token = loadData("token");
 const initState = {
   isAuth: token ? true : false,
-  token: token || "",
+  token: token ? token : null,
   username: null,
   isError: false,
   isLoading: false,
@@ -21,11 +21,14 @@ const authReducer = (state = initState, { type, payload }) => {
     }
 
     case LOGIN_SUCCESS: {
+      const { token, username, email } = payload;
+
       return {
         ...state,
         isAuth: true,
-        token: payload,
-        username: payload,
+        token,
+        username,
+
         isLoading: false,
         isError: false,
       };

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-// import "font-awesome/css/font-awesome.min.css";
+import "font-awesome/css/font-awesome.min.css";
 import { Navbar } from "../Navbar/Navbar";
 
  const SportsLinksPage = () => {
@@ -11,13 +11,13 @@ import { Navbar } from "../Navbar/Navbar";
   const history = useHistory();
 
   let a = sportsNews.map((item) => publishedAt === item.publishedAt);
-
+console.log("from sports links page")
   let count = 0;
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== true) count++;
     else break;
   }
-
+console.log("from article page")
   const goToLink = (data) => {
     history.push(`/sports/${data}`);
   };

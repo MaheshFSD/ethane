@@ -1,8 +1,3 @@
-
-
-
-
-
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Home } from '../Components/Home/Home'
@@ -132,21 +127,17 @@ const Routes = () => {
 
           <Middle></Middle>
         </Route>
-        <Route exact path='/health/:publishedAt'>
-          <HealthLinksPage />
-        </Route>
 
         <Route path="/unitedkingdom" exact>
 
           <Middle></Middle>
         </Route>
         {/* <PrivateRoute path="/profile"></PrivateRoute> */}
-        <Route>
-          <Error></Error>
-        </Route>
-
         <Route exact path='/profile'>
           <Profile />
+        </Route>
+        <Route>
+          <Error></Error>
         </Route>
       </Switch>
     </div>

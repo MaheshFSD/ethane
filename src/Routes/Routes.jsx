@@ -30,6 +30,9 @@ import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StickyTop } from '../Components/Home/StickyTop'
+import { PrivateRoute} from "./PrivateRoute"
+import { Login } from "../Components/Profile/Login";
+import { Registration } from "../Components/Profile/Registration";
 
 const Routes = () => {
   return (

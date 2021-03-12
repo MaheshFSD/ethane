@@ -2,13 +2,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-// import "font-awesome/css/font-awesome.min.css";
+import "font-awesome/css/font-awesome.min.css";
 import { Navbar } from "../Navbar/Navbar";
+import { useTranslation} from "react-i18next"
+
+
 
 export const HealthLinksPage = () => {
   const { publishedAt } = useParams();
   const { healthNews } = useSelector((state) => state.health);
   const history = useHistory();
+  const {t, i18n} = useTranslation()
+
+  
 
   let a = healthNews.map((item) => publishedAt === item.publishedAt);
 
@@ -26,21 +32,21 @@ export const HealthLinksPage = () => {
     <>
       <Navbar />
 
-      {healthNews.map((item) =>
-        publishedAt === item.publishedAt ? (
+      
+        
           <NewsWrapper>
-            <h1>{item.title}</h1>
-            <h3>By {item.author}, CNN</h3>
-            <p>Updated {item.publishedAt}</p>
+            <h1>{t(`Lang.1`)}</h1>
+            <h3>By , CNN</h3>
+            <p>Updated </p>
             <div>
-              <img src={item.urlToImage} />
+              <img src="" />
             </div>
             <br></br>
             <HealthStory>
               <p>
-                <span>(CNN) -</span> {item.description}
+                <span>(CNN) -</span> 
               </p>
-              <p>{item.content}</p>
+              <p></p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -131,7 +137,7 @@ export const HealthLinksPage = () => {
                 ></i>
               </div>
               <div>
-                <p>{healthNews[count + 1].title}</p>
+                <p>{}</p>
                 <span>Next Story</span>
               </div>
             </NextStoryDiv>
@@ -139,7 +145,7 @@ export const HealthLinksPage = () => {
         ) : (
           ""
         )
-      )}
+      
     </>
   );
 };

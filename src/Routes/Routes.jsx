@@ -1,8 +1,3 @@
-
-
-
-
-
 import React from 'react'
 import { Route, Switch } from 'react-router'
 import { Home } from '../Components/Home/Home'
@@ -34,6 +29,8 @@ import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
 import { StickyTop } from '../Components/Home/StickyTop'
+import { EntertainmentCard } from '../Components/Entertainment/EntertainmentCard'
+import { EditEntertainment } from '../Components/Entertainment/EditEnternainment'
 
 const Routes = () => {
   return (
@@ -53,7 +50,7 @@ const Routes = () => {
         </Route>
         <Route exact path='/business'>
           <Navbar />
-          <Business />          
+          <Business />
         </Route>
         <Route exact path='/business/:publishedAt'>
           <Navbar />
@@ -66,8 +63,18 @@ const Routes = () => {
           <HealthLinksPage />
         </Route>
         <Route exact path='/entertainment'>
+          <Navbar />
           <Entertainment />
         </Route>
+        <Route exact path='/entertainment/:publishedAt'>
+          <Navbar />
+          <EntertainmentCard />
+        </Route>
+        <Route exact path='/edit/:id'>
+          <Navbar />
+          <EditEntertainment />
+        </Route>
+
         <Route exact path='/style'>
           <StylePage />
         </Route>
@@ -92,48 +99,46 @@ const Routes = () => {
         <Route path='/africa/:id'>
           <AfricaDetails></AfricaDetails>
         </Route>
-        <Route path="/searchpage" >
+        <Route path='/searchpage'>
           <StickyTop />
         </Route>
 
-        <Route path="/africa" exact>
+        <Route path='/africa' exact>
           <Africa></Africa>
         </Route>
-        <Route path="/america" exact>
+        <Route path='/america' exact>
           <America></America>
         </Route>
         {/* <Route path="/america/:id">
           <AmericaDetails></AmericaDetails>
         </Route> */}
-        <Route path="/asia" exact>
+        <Route path='/asia' exact>
           <Asia></Asia>
         </Route>
 
         {/* <Route path="/asia/:id" exact>
           <AsiaDetails></AsiaDetails>
         </Route> */}
-        <Route path="/australia" exact>
+        <Route path='/australia' exact>
           <Australia></Australia>
         </Route>
-        <Route path="/china" exact>
+        <Route path='/china' exact>
           <China></China>
         </Route>
-        <Route path="/europe" exact>
+        <Route path='/europe' exact>
           <Europe></Europe>
         </Route>
-        <Route path="/india" exact>
+        <Route path='/india' exact>
           <India></India>
         </Route>
-        <Route path="/middleeast" exact>
-
+        <Route path='/middleeast' exact>
           <Middle></Middle>
         </Route>
         <Route exact path='/health/:publishedAt'>
           <HealthLinksPage />
         </Route>
 
-        <Route path="/unitedkingdom" exact>
-
+        <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
         {/* <PrivateRoute path="/profile"></PrivateRoute> */}

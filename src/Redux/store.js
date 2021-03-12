@@ -3,13 +3,12 @@ import { BusinessReducer, HeadlinesReducer } from "./Business/reducer";
 import thunk from "redux-thunk";
 import { StyleReducer } from "./styles/reducer";
 import { WorldReducer } from "./world/reducer";
-
+import {reducer as sportsReducer} from "./sports/reducer"
 import { reducer as healthReducer } from "./health/reducer";
 import { reducer as homeReducer } from "./home/reducer";
 import { regReducer } from "./registration/reducer";
 import { authReducer } from "./auth/reducer";
 import { ProfileReducer } from "./profile/reducer";
-
 import { FinanceReducer } from "../Redux/Business/Finance/financeReducer";
 import { SearchReducer } from "./SearchPage/reducer";
 
@@ -18,6 +17,7 @@ const rootReducer = combineReducers({
   style: StyleReducer,
   health: healthReducer,
   home: homeReducer,
+  sports: sportsReducer,
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
@@ -25,6 +25,7 @@ const rootReducer = combineReducers({
   auth: authReducer,
   search: SearchReducer,
   profile: ProfileReducer,
+
 });
 
 const composeEnhancers =

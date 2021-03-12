@@ -13,7 +13,8 @@ import { getSearchData } from "../../Redux/SearchPage/action";
 
 const Home = () => {
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const menu = useSelector((state) => state.search.menu)
     const {isLoading, error, homeNews} = useSelector(state => state.home)
     const [trending,setTrending]=React.useState([])
     const history = useHistory()
@@ -51,6 +52,7 @@ const Home = () => {
     return isLoading ? <Loading></Loading> :(
       <>
       <Navbar />
+      {menu? (<div style={{position:"fixed", marginTop:"0px", width:"100%", zIndex:"10"}}><Footer/></div>):null}
       <div className={styles.trending}>
         <span onClick={()=>handleSearch("Covid")} style={{color:"red"}} >COVID-19: </span>
         <span onClick={()=>handleSearch("Covid")}>Live Updates</span>
@@ -201,7 +203,7 @@ const Home = () => {
           <GridCardContainer>
               {homeNews.map(item => (
                   <div key={item.id}>
-                      <img src = {item.urlToImage}/>
+                      <img src = {item.urlToImage} alt="logo sports" />
                       <div><p onClick={() => goToLink(item.publishedAt)}>{item.title}</p></div>
                   </div>
               ))}

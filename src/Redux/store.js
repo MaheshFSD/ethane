@@ -31,7 +31,7 @@ const rootReducer = combineReducers({
 
   registration: regReducer,
   auth: authReducer,
-  search: SearchReducer,
+
   profile: ProfileReducer,
 })
 

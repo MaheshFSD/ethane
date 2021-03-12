@@ -25,7 +25,7 @@ import { Middle } from '../Components/World/Pages/Middle'
 import { Error } from '../Components/Error/Error'
 import { HealthLinksPage } from '../Components/Health/HealthLinksPage'
 import { HomeLinksPage } from '../Components/Home/HomeLinksPage'
-import { Profile } from '../Components/Profile/Profile'
+// import { Profile } from '../Components/Profile/Profile'
 import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
 import { BusinessCard } from '../Components/Business/BusinessCard'
 import { Navbar } from '../Components/Navbar/Navbar'
@@ -116,14 +116,14 @@ const Routes = () => {
         <Route path='/america' exact>
           <America></America>
         </Route>
-        {/* <Route path="/america/:id">
+        {/* <Route path='/america/:id'>
           <AmericaDetails></AmericaDetails>
         </Route> */}
         <Route path='/asia' exact>
           <Asia></Asia>
         </Route>
 
-        {/* <Route path="/asia/:id" exact>
+        {/* <Route path='/asia/:id' exact>
           <AsiaDetails></AsiaDetails>
         </Route> */}
         <Route path='/australia' exact>
@@ -148,16 +148,16 @@ const Routes = () => {
         <Route path='/unitedkingdom' exact>
           <Middle></Middle>
         </Route>
-        {/* <PrivateRoute exact path="/profile">
+        {/* <PrivateRoute exact path='/profile'>
           <Profile></Profile>
-        </PrivateRoute>
-        <Route path="/login" exact>
+        </PrivateRoute> */}
+        {/* <Route path='/login' exact>
           <Login></Login>
         </Route>
-        <Route path="/registration">
+        <Route path='/registration'>
           <Registration></Registration>
-        </Route> */}
-        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
+        </Route>
+        <PrivateRoute path='/profile'></PrivateRoute> */}
         <Route>
           <Error></Error>
         </Route>

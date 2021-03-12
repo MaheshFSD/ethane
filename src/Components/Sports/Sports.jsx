@@ -11,7 +11,7 @@ import "./Sports.module.css"
 import { CarouselSecond } from "./CarouselSecond";
 import { CarouselThird } from "./CarouselThird";
 const Sports = () => {
-   
+
   const dispatch = useDispatch()
     const {isLoading, error, sportsNews} = useSelector(state => state.sports)
     const history = useHistory()
@@ -22,15 +22,16 @@ const Sports = () => {
     useEffect(() => {
         get_data()        
     }, [dispatch])
-    // console.log(sportsNews)
+    console.log(sportsNews)
     const goToLink = (data) => {
         history.push(`/sports/${data}`)
     }
-    // console.log(sportsNews)
-    return isLoading ? <Loading></Loading> :(
+    console.log(sportsNews)
+    return isLoading ? <Loading>...Loading</Loading> :(
       <>
       <Navbar />     
       <MainContainer>
+
           <TopNewsContainer>
 
               <TopNewsLeftPart>
@@ -73,7 +74,7 @@ const Sports = () => {
               <div>{error && <h2>Failed To Load Data</h2>}</div>
               
           </TopNewsContainer>
-          <div>
+          <div className={StyleSheet.blackbody}>
           <Carousel />
           <CarouselSecond />
           </div>

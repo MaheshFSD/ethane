@@ -34,6 +34,7 @@ import { Login } from "../Components/Profile/Login";
 import { PrivateRoute } from "./PrivateRoute";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { StickyTop } from "../Components/Home/StickyTop";
+import { SportsLinksPage } from "../Components/Sports/SportsLinksPage";
 
 const Routes = () => {
   return (

@@ -6,21 +6,16 @@ import { StyleReducer } from "./styles/reducer";
 import { WorldReducer } from "./world/reducer";
 import {reducer as healthReducer} from "./health/reducer"
 import {reducer as homeReducer} from "./home/reducer"
-
+import {reducer as sportsReducer} from "./sports/reducer"
 import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
 import { SearchReducer } from "./SearchPage/reducer";
-
-
-
-
-
-
 
 const rootReducer = combineReducers({
   world: WorldReducer,
   style: StyleReducer,
   health: healthReducer,
   home: homeReducer,
+  sports: sportsReducer,
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,

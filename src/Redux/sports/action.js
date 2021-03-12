@@ -1,5 +1,4 @@
 import axios from "axios"
-// import {REACT_APP_UNSPLASH_KEY} from ""
 import { GET_SPORTS_FAILURE, GET_SPORTS_REQUEST, GET_SPORTS_SUCCESS } from "./actionTypes"
 
 export const get_sports_request = () => {

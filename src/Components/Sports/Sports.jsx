@@ -12,7 +12,6 @@ import { CarouselSecond } from "./CarouselSecond";
 import { CarouselThird } from "./CarouselThird";
 const Sports = () => {
 
-    console.log(`${process.env.REACT_APP_UNSPLASH_KEY}`)
   const dispatch = useDispatch()
     const {isLoading, error, sportsNews} = useSelector(state => state.sports)
     const history = useHistory()

@@ -203,7 +203,7 @@ const Home = () => {
           <GridCardContainer>
               {homeNews.map(item => (
                   <div key={item.id}>
-                      <img src = {item.urlToImage}/>
+                      <img src = {item.urlToImage} alt="logo sports" />
                       <div><p onClick={() => goToLink(item.publishedAt)}>{item.title}</p></div>
                   </div>
               ))}

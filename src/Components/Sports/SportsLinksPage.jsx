@@ -19,7 +19,7 @@ import { Navbar } from "../Navbar/Navbar";
   }
 
   const goToLink = (data) => {
-    history.push(`/health/${data}`);
+    history.push(`/sports/${data}`);
   };
 
   return (
@@ -33,7 +33,7 @@ import { Navbar } from "../Navbar/Navbar";
             <h3>By {item.author}, CNN</h3>
             <p>Updated {item.publishedAt}</p>
             <div>
-              <img src={item.urlToImage} />
+              <img src={item.urlToImage} alt="logo" />
             </div>
             <br></br>
             <HealthStory>

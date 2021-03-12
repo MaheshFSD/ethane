@@ -66,7 +66,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
         <Link to="/">
-          <img src="cnn_logo.png" alt="logo" />
+          <img src="../cnn_logo.png" alt="logo" />
         </Link>
         {links1.map(({ to, title }) => (
           <Link to={to} key={to}>

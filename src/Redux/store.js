@@ -3,10 +3,20 @@ import { BusinessReducer, HeadlinesReducer } from "./Business/reducer";
 import thunk from "redux-thunk";
 import { StyleReducer } from "./styles/reducer";
 import { WorldReducer } from "./world/reducer";
+
 import { reducer as healthReducer } from "./health/reducer";
 import { reducer as homeReducer } from "./home/reducer";
 import { regReducer } from "./registration/reducer";
 import { authReducer } from "./auth/reducer";
+
+
+import { FinanceReducer } from '../Redux/Business/Finance/financeReducer'
+import { SearchReducer } from "./SearchPage/reducer";
+
+
+
+
+
 
 import { FinanceReducer } from "../Redux/Business/Finance/financeReducer";
 
@@ -14,13 +24,14 @@ const rootReducer = combineReducers({
   world: WorldReducer,
   style: StyleReducer,
   health: healthReducer,
-
   home: homeReducer,
   business: BusinessReducer,
   finances: FinanceReducer,
   headline: HeadlinesReducer,
   registration: regReducer,
   auth: authReducer,
+  search: SearchReducer
+
 });
 
 const composeEnhancers =

@@ -32,6 +32,9 @@ import { Navbar } from '../Components/Navbar/Navbar'
 import { StickyTop } from '../Components/Home/StickyTop'
 import { EntertainmentCard } from '../Components/Entertainment/EntertainmentCard'
 import { EditEntertainment } from '../Components/Entertainment/EditEnternainment'
+import { PrivateRoute } from './PrivateRoute'
+import { Login } from '../Components/Profile/Login'
+import { Registration } from '../Components/Profile/Registration'
 
 const Routes = () => {
   return (
@@ -151,13 +154,13 @@ const Routes = () => {
         {/* <PrivateRoute exact path='/profile'>
           <Profile></Profile>
         </PrivateRoute> */}
-        {/* <Route path='/login' exact>
+        <Route path='/login' exact>
           <Login></Login>
         </Route>
         <Route path='/registration'>
           <Registration></Registration>
         </Route>
-        <PrivateRoute path='/profile'></PrivateRoute> */}
+        <PrivateRoute path='/profile'></PrivateRoute>
         <Route>
           <Error></Error>
         </Route>

@@ -1,36 +1,41 @@
-import React from 'react'
-import { Route, Switch } from 'react-router'
-import { Home } from '../Components/Home/Home'
-import { UsPolitics } from '../Components/UsPolitics/UsPolitics'
-import { Business } from '../Components/Business/Business'
-import { Health } from '../Components/Health/Health'
-import { Entertainment } from '../Components/Entertainment/Entertainment'
-import { StylePage } from '../Components/Style/StylePage'
-import { Travel } from '../Components/Travel/Travel'
-import { Sports } from '../Components/Sports/Sports'
-import { SportsLinksPage } from '../Components/Sports/SportsLinksPage'
-import { Videos } from '../Components/Videos/Videos'
-import { World } from '../Components/World/World'
-import { Footer } from '../Components/Footer/Footer'
-import { Article } from '../Components/Style/Article'
-import { WorldDetails } from '../Components/World/WorldDetails'
-import { Africa } from '../Components/World/Pages/Africa'
-import { America } from '../Components/World/Pages/America'
-import { China } from '../Components/World/Pages/China'
-import { Europe } from '../Components/World/Pages/Europe'
-import { Asia } from '../Components/World/Pages/Asia'
-import { India } from '../Components/World/Pages/India'
-import { Australia } from '../Components/World/Pages/Australia'
-import { Middle } from '../Components/World/Pages/Middle'
-import { Error } from '../Components/Error/Error'
-import { HealthLinksPage } from '../Components/Health/HealthLinksPage'
-import { HomeLinksPage } from '../Components/Home/HomeLinksPage'
-import { Profile } from '../Components/Profile/Profile'
-import { AfricaDetails } from '../Components/World/Pages/AfricaDetails'
-import { BusinessCard } from '../Components/Business/BusinessCard'
-import { Navbar } from '../Components/Navbar/Navbar'
-import { StickyTop } from '../Components/Home/StickyTop'
+import React from "react";
+import { Route, Switch } from "react-router";
+import { Home } from "../Components/Home/Home";
+import { UsPolitics } from "../Components/UsPolitics/UsPolitics";
+import { Business } from "../Components/Business/Business";
+import { Health } from "../Components/Health/Health";
+import { Entertainment } from "../Components/Entertainment/Entertainment";
+import { StylePage } from "../Components/Style/StylePage";
+import { Travel } from "../Components/Travel/Travel";
+import { Sports } from "../Components/Sports/Sports";
+import { SportsLinksPage } from "../Components/Sports/SportsLinksPage";
+import { Videos } from "../Components/Videos/Videos";
+import { World } from "../Components/World/World";
+import { Footer } from "../Components/Footer/Footer";
+import { Article } from "../Components/Style/Article";
+import { WorldDetails } from "../Components/World/WorldDetails";
+import { Africa } from "../Components/World/Pages/Africa";
+import { America } from "../Components/World/Pages/America";
+import { China } from "../Components/World/Pages/China";
+import { Europe } from "../Components/World/Pages/Europe";
+import { Asia } from "../Components/World/Pages/Asia";
+import { India } from "../Components/World/Pages/India";
+import { Australia } from "../Components/World/Pages/Australia";
+import { Middle } from "../Components/World/Pages/Middle";
+import { Error } from "../Components/Error/Error";
+import { HealthLinksPage } from "../Components/Health/HealthLinksPage";
+import { HomeLinksPage } from "../Components/Home/HomeLinksPage";
+import { Profile } from "../Components/Profile/Profile";
+import { AfricaDetails } from "../Components/World/Pages/AfricaDetails";
+import { AmericaDetails } from "../Components/World/Pages/AmericaDetails";
+import { AsiaDetails } from "../Components/World/Pages/AsiaDetails";
+import { BusinessCard } from "../Components/Business/BusinessCard";
+import { Navbar } from "../Components/Navbar/Navbar";
+import { StickyTop } from "../Components/Home/StickyTop";
+import { PrivateRoute } from "./PrivateRoute";
 
+import { Login } from "../Components/Profile/Login";
+import { Registration } from "../Components/Profile/Registration";
 const Routes = () => {
   return (
     <div>
@@ -75,7 +80,7 @@ const Routes = () => {
         <Route exact path="/sports">
           <Sports />
         </Route>
-          <Route exact path='/sports/:publishedAt'>
+        <Route exact path="/sports/:publishedAt">
           <SportsLinksPage />
         </Route>
         <Route exact path="/videos">
@@ -104,16 +109,16 @@ const Routes = () => {
         <Route path="/america" exact>
           <America></America>
         </Route>
-        {/* <Route path="/america/:id">
+        <Route path="/america/:id">
           <AmericaDetails></AmericaDetails>
-        </Route> */}
+        </Route>
         <Route path="/asia" exact>
           <Asia></Asia>
         </Route>
 
-        {/* <Route path="/asia/:id" exact>
+        <Route path="/asia/:id" exact>
           <AsiaDetails></AsiaDetails>
-        </Route> */}
+        </Route>
         <Route path="/australia" exact>
           <Australia></Australia>
         </Route>
@@ -136,6 +141,7 @@ const Routes = () => {
         <Route path="/unitedkingdom" exact>
           <Middle></Middle>
         </Route>
+
         <PrivateRoute exact path="/profile">
           <Profile></Profile>
         </PrivateRoute>

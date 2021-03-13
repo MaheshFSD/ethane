@@ -34,6 +34,11 @@ import { Navbar } from "../Components/Navbar/Navbar";
 import { StickyTop } from "../Components/Home/StickyTop";
 import { PrivateRoute } from "./PrivateRoute";
 
+import { EntertainmentCard } from "../Components/Entertainment/EntertainmentCard";
+import { EditEntertainment } from "../Components/Entertainment/EditEnternainment";
+import { Login } from "../Components/Profile/Login";
+import { Registration } from "../Components/Profile/Registration";
+
 import { Login } from "../Components/Profile/Login";
 import { Registration } from "../Components/Profile/Registration";
 const Routes = () => {
@@ -69,8 +74,18 @@ const Routes = () => {
           <HealthLinksPage />
         </Route>
         <Route exact path="/entertainment">
+          <Navbar />
           <Entertainment />
         </Route>
+        <Route exact path="/entertainment/:publishedAt">
+          <Navbar />
+          <EntertainmentCard />
+        </Route>
+        <Route exact path="/edit/:id">
+          <Navbar />
+          <EditEntertainment />
+        </Route>
+
         <Route exact path="/style">
           <StylePage />
         </Route>
@@ -141,7 +156,6 @@ const Routes = () => {
         <Route path="/unitedkingdom" exact>
           <Middle></Middle>
         </Route>
-
         <PrivateRoute exact path="/profile">
           <Profile></Profile>
         </PrivateRoute>
@@ -151,7 +165,7 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-        {/* <PrivateRoute path="/profile"></PrivateRoute> */}
+        <PrivateRoute path="/profile"></PrivateRoute>
         <Route>
           <Error></Error>
         </Route>

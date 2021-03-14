@@ -26,10 +26,11 @@ export const AddEntertainment = () => {
   const [title, setTitle] = useState('')
   const [image, setImage] = useState('')
   const [time, setTime] = useState('')
-  var username = useSelector((state) => state.profile.data[0].username)
+  // var username = useSelector((state) => state.profile.data[0].username)
 
-  const isAdmin = username == 'admin'
-
+  // // eslint-disable-next-line eqeqeq
+  // const isAdmin = username == 'admin'
+  const isAdmin = false
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
   const dispatch = useDispatch()

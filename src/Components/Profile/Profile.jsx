@@ -46,6 +46,13 @@ export const NewsLetter = () => {
               up for breaking news email alerts from CNN.
             </p>
           </HEAD>
+          <button
+            onClick={handleButtonClck}
+            style={text ? { color: "red" } : { color: "#4866fb" }}
+          >
+            <AiOutlinePlusCircle></AiOutlinePlusCircle>
+            {text ? "Subscribed" : "Subscribe"}
+          </button>
         </NEWS_DIV>
         <NEWS_DIV>
           <img
@@ -59,6 +66,13 @@ export const NewsLetter = () => {
               for the day.
             </p>
           </HEAD>
+          <button
+            onClick={handleButtonClck}
+            style={text ? { color: "red" } : { color: "#4866fb" }}
+          >
+            <AiOutlinePlusCircle></AiOutlinePlusCircle>
+            {text ? "Subscribed" : "Subscribe"}
+          </button>
         </NEWS_DIV>
         <NEWS_DIV>
           <img
@@ -72,6 +86,13 @@ export const NewsLetter = () => {
               world.
             </p>
           </HEAD>
+          <button
+            onClick={handleButtonClck}
+            style={text ? { color: "red" } : { color: "#4866fb" }}
+          >
+            <AiOutlinePlusCircle></AiOutlinePlusCircle>
+            {text ? "Subscribed" : "Subscribe"}
+          </button>
         </NEWS_DIV>
         <NEWS_DIV>
           <img
@@ -85,6 +106,13 @@ export const NewsLetter = () => {
               Series, for access to exclusive events, content, and more.
             </p>
           </HEAD>
+          <button
+            onClick={handleButtonClck}
+            style={text ? { color: "red" } : { color: "#4866fb" }}
+          >
+            <AiOutlinePlusCircle></AiOutlinePlusCircle>
+            {text ? "Subscribed" : "Subscribe"}
+          </button>
         </NEWS_DIV>
         <NEWS_DIV>
           <img

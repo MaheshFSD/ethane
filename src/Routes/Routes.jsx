@@ -38,9 +38,6 @@ import { EntertainmentCard } from "../Components/Entertainment/EntertainmentCard
 import { EditEntertainment } from "../Components/Entertainment/EditEnternainment";
 import { Login } from "../Components/Profile/Login";
 import { Registration } from "../Components/Profile/Registration";
-
-import { Login } from "../Components/Profile/Login";
-import { Registration } from "../Components/Profile/Registration";
 const Routes = () => {
   return (
     <div>

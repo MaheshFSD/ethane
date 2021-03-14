@@ -146,12 +146,6 @@ const Routes = () => {
         <Route path="/middleeast" exact>
           <Middle></Middle>
         </Route>
-<<<<<<< HEAD
-=======
-        <Route exact path="/health/:publishedAt">
-          <HealthLinksPage />
-        </Route>
->>>>>>> dab2501b28a88581a79952ac208fea8318fb974f
 
         <Route path="/unitedkingdom" exact>
           <Middle></Middle>
@@ -165,11 +159,6 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-<<<<<<< HEAD
-        
-=======
-        <PrivateRoute path="/profile"></PrivateRoute>
->>>>>>> dab2501b28a88581a79952ac208fea8318fb974f
         <Route>
           <Error></Error>
         </Route>

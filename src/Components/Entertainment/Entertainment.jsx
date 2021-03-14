@@ -1,65 +1,65 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import styled from 'styled-components'
-import { Footer } from '../Footer/Footer'
+import styled from "styled-components";
+import { Footer } from "../Footer/Footer";
 
-import CircularProgress from '@material-ui/core/CircularProgress'
+import CircularProgress from "@material-ui/core/CircularProgress";
 import {
   getentertainmentAxios,
   delete_entertainmentAxios,
-} from '../../Redux/Entertainment/action'
-import { AddEntertainment } from './AddEnternainment'
-import { useHistory } from 'react-router-dom'
-import { BsPencilSquare } from 'react-icons/bs'
-import { AiFillDelete } from 'react-icons/ai'
+} from "../../Redux/Entertainment/action";
+import { AddEntertainment } from "./AddEnternainment";
+import { useHistory } from "react-router-dom";
+import { BsPencilSquare } from "react-icons/bs";
+import { AiFillDelete } from "react-icons/ai";
 
 const Entertainment = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  var username = useSelector((state) => state.profile.data[0].username)
+  var username = useSelector((state) => state.profile.data[0].username);
 
-  const isAdmin = username == 'admin'
+  const isAdmin = username == "admin";
   // console.log(username)
-  console.log(isAdmin)
+  console.log(isAdmin);
   // console.log(dispatch(business()))
 
   const { entertainmentNews, isLoading } = useSelector(
     (state) => state.entertainment
-  )
+  );
 
-  const history = useHistory()
+  const history = useHistory();
   const goToLink = (data) => {
-    history.push(`/entertainment/${data}`)
-  }
+    history.push(`/entertainment/${data}`);
+  };
   const edit = (id) => {
-    history.push(`/edit/${id}`)
-  }
+    history.push(`/edit/${id}`);
+  };
   const deleting = (id) => {
-    dispatch(delete_entertainmentAxios(id))
-  }
+    dispatch(delete_entertainmentAxios(id));
+  };
 
   useEffect(() => {
-    dispatch(getentertainmentAxios())
-  }, [dispatch])
+    dispatch(getentertainmentAxios());
+  }, [dispatch]);
   return isLoading ? (
     <div
       style={{
-        position: 'relative',
-        marginTop: '100px',
-        fontFamily: 'serif',
+        position: "relative",
+        marginTop: "100px",
+        fontFamily: "serif",
       }}
     >
       {/* <h1 style={{ textAlign: 'center' }}>HAPPINESS</h1> */}
       <CircularProgress
-        color='primary'
+        color="primary"
         size={100}
         left={-20}
         top={10}
-        status={'loading'}
-        style={{ marginLeft: '46%', marginTop: '100px' }}
+        status={"loading"}
+        style={{ marginLeft: "46%", marginTop: "100px" }}
       />
-      <p style={{ textAlign: 'center', fontSize: '20px' }}>Loading...</p>
+      <p style={{ textAlign: "center", fontSize: "20px" }}>Loading...</p>
     </div>
   ) : (
     <>
@@ -114,32 +114,32 @@ const Entertainment = () => {
       </EntertainmentWrapper>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export { Entertainment }
+export { Entertainment };
 
 const EntertainmentWrapper = styled.div`
   width: 80%;
   /* border: 1px solid black; */
   margin: 20px auto;
   /* height: 1000px; */
-`
+`;
 
 const TopEntertainment = styled.div`
   display: flex;
-`
+`;
 
 const TopLeftEntertainment = styled.div`
   /* border: 1px solid black; */
   width: 70%;
-`
+`;
 
 const TopRightEntertainment = styled.div`
   /* border: 1px solid black; */
   width: 30%;
   margin: 0px 1%;
-`
+`;
 
 const TopLeftEntertainmentCard = styled.div`
   /* border: 1px solid black; */
@@ -157,7 +157,7 @@ const TopLeftEntertainmentCard = styled.div`
     margin-left: 6%;
     margin-top: -20px;
   }
-`
+`;
 const TopRightEntertainmentCard = styled.div`
   /* border: 1px solid black; */
   padding: 10px;
@@ -175,7 +175,7 @@ const TopRightEntertainmentCard = styled.div`
     margin-left: 3%;
     margin-top: -20px;
   }
-`
+`;
 const MiddleEntertainment = styled.div`
   /* border: 1px solid black; */
   margin-top: 30px;
@@ -184,10 +184,10 @@ const MiddleEntertainment = styled.div`
   column-gap: 30px;
   padding: 0px 20px;
   margin-left: 30px;
-`
+`;
 
 const TopMiddleEntertainmentCard = styled.div`
-  width: 350px;
+  width: 300px;
   img {
     width: 100%;
     height: 200px;
@@ -197,13 +197,14 @@ const TopMiddleEntertainmentCard = styled.div`
   h4 {
     position: absolute;
     border: 2px solid black;
-    padding: 20px;
+    padding: px;
     text-align: center;
     width: 200px;
     height: 60px;
+    
     margin-left: 2%;
     margin-top: -20px;
     justify-content: center;
     align-items: center;
   }
-`
+`;

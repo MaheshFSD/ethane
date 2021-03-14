@@ -159,7 +159,6 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-        <PrivateRoute path="/profile"></PrivateRoute>
         <Route>
           <Error></Error>
         </Route>

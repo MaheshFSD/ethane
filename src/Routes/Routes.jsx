@@ -38,7 +38,6 @@ import { EntertainmentCard } from "../Components/Entertainment/EntertainmentCard
 import { EditEntertainment } from "../Components/Entertainment/EditEnternainment";
 import { Login } from "../Components/Profile/Login";
 import { Registration } from "../Components/Profile/Registration";
-
 const Routes = () => {
   return (
     <div>
@@ -147,9 +146,6 @@ const Routes = () => {
         <Route path="/middleeast" exact>
           <Middle></Middle>
         </Route>
-        <Route exact path="/health/:publishedAt">
-          <HealthLinksPage />
-        </Route>
 
         <Route path="/unitedkingdom" exact>
           <Middle></Middle>
@@ -163,7 +159,6 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-        <PrivateRoute path="/profile"></PrivateRoute>
         <Route>
           <Error></Error>
         </Route>

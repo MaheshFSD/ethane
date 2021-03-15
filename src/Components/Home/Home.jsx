@@ -222,7 +222,7 @@ const MainContainer = styled.div `
   width: 85%;
   height: auto;
   margin: auto;
-  margin-top: 80px;
+  margin-top: 53px;
   font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
 
   hr {

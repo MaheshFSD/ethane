@@ -410,6 +410,7 @@ const MainContainer = styled.div`
 
   > img {
     width: 250px;
+    margin-top: 50px;
   }
 `;
 
@@ -485,7 +486,7 @@ const ImageDesc1 = styled.div`
   display: flex;
   font-size: 22px;
   position: absolute;
-  top: 320px;
+  top: 300px;
   right: 13%;
 `;
 
@@ -496,7 +497,7 @@ const ImageDesc2 = styled.div`
   display: flex;
   font-size: 22px;
   position: absolute;
-  top: 640px;
+  top: 610px;
   right: 13%;
 `;
 

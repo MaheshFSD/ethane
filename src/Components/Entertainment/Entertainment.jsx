@@ -17,11 +17,19 @@ import { AiFillDelete } from "react-icons/ai";
 const Entertainment = () => {
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
+  var username = useSelector((state) => state.profile.data[0].username);
+
+  // eslint-disable-next-line eqeqeq
+  const isAdmin = username == "admin";
+  // const isAdmin = false;
+=======
 //   var username = useSelector((state) => state.profile.data[0].username);
 
   // // eslint-disable-next-line eqeqeq
   // const isAdmin = username == 'admin'
   const isAdmin = false
+>>>>>>> a6ce90a1064caef94273e817232d5322e5ccc53d
 
 //   const isAdmin = username == "admin";
  
@@ -201,10 +209,14 @@ const TopMiddleEntertainmentCard = styled.div`
     position: absolute;
     border: 2px solid black;
 <<<<<<< HEAD
+    padding: 30px;
+=======
+<<<<<<< HEAD
     padding: 30px 20px;
 =======
     padding: px;
 >>>>>>> 35d6c6b3178791c9f5eebc8440cc63a2c9f12a54
+>>>>>>> a6ce90a1064caef94273e817232d5322e5ccc53d
     text-align: center;
     width: 200px;
     height: 60px;

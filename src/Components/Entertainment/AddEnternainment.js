@@ -1,65 +1,65 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Modal from '@material-ui/core/Modal'
-import Backdrop from '@material-ui/core/Backdrop'
-import Fade from '@material-ui/core/Fade'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import { useDispatch, useSelector } from "react-redux";
 
-import { add_entertainmentAxios } from '../../Redux/Entertainment/action'
-import styled from 'styled-components'
+import { add_entertainmentAxios } from "../../Redux/Entertainment/action";
+import styled from "styled-components";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-}))
+}));
 
 export const AddEntertainment = () => {
-  const [title, setTitle] = useState('')
-  const [image, setImage] = useState('')
-  const [time, setTime] = useState('')
-  // var username = useSelector((state) => state.profile.data[0].username)
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [time, setTime] = useState("");
+  var username = useSelector((state) => state.profile.data[0].username);
 
   // // eslint-disable-next-line eqeqeq
-  // const isAdmin = username == 'admin'
-  const isAdmin = false
-  const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
-  const dispatch = useDispatch()
+  const isAdmin = username == "admin";
+  // const isAdmin = false;
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
   const submit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(
       add_entertainmentAxios({
         title: title,
         urlToImage: image,
         publishedAt: time,
       })
-    )
-  }
+    );
+  };
   return isAdmin ? (
     <div>
-      <Button type='button' onClick={handleOpen}>
+      <Button type="button" onClick={handleOpen}>
         ADD NEWS
       </Button>
       <Modal
-        aria-labelledby='transition-modal-title'
-        aria-describedby='transition-modal-description'
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         className={classes.modal}
         open={open}
         onClose={handleClose}
@@ -71,32 +71,32 @@ export const AddEntertainment = () => {
       >
         <Fade in={open}>
           <Wrapper>
-            <h2 id='transition-modal-title' style={{ textAlign: 'center' }}>
+            <h2 id="transition-modal-title" style={{ textAlign: "center" }}>
               ADD NEWS
             </h2>
 
             <form
               onSubmit={submit}
-              style={{ justifyContent: 'center', alignContent: 'center' }}
+              style={{ justifyContent: "center", alignContent: "center" }}
             >
               <input
-                type='text'
+                type="text"
                 value={title}
-                placeholder='Enter The Title'
+                placeholder="Enter The Title"
                 onChange={(e) => setTitle(e.target.value)}
               />
               <br />
               <input
-                type='text'
+                type="text"
                 value={image}
-                placeholder='Paste the url of the image'
+                placeholder="Paste the url of the image"
                 onChange={(e) => setImage(e.target.value)}
               />
               <br />
               <input
-                type='datetime-local'
+                type="datetime-local"
                 value={time}
-                placeholder='Paste the url of the image'
+                placeholder="Paste the url of the image"
                 onChange={(e) => setTime(e.target.value)}
               />
               <br />
@@ -109,8 +109,8 @@ export const AddEntertainment = () => {
     </div>
   ) : (
     <></>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   color: white;
@@ -155,7 +155,7 @@ const Wrapper = styled.div`
     background: #631c1c;
     box-shadow: 20px 20px 60px #461414, -20px -20px 60px #802424;
   }
-`
+`;
 const Button = styled.button`
   width: 50%;
   height: 50px;
@@ -163,4 +163,4 @@ const Button = styled.button`
   border-radius: 50px;
   background: #2b1227;
   color: white;
-`
+`;

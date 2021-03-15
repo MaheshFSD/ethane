@@ -393,9 +393,9 @@ const Health = () => {
 // export { Health };
 const MainContainer = styled.div`
   width: 85%;
-  height: auto;
+  height: auto;  
+  margin-top: 53px;
   margin: auto;
-  margin-top: 80px;
   font-family: CNN, "Helvetica Neue", Helvetica, Arial, Utkal, sans-serif;
 
   hr {

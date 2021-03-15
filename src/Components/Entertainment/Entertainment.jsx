@@ -200,7 +200,11 @@ const TopMiddleEntertainmentCard = styled.div`
   h4 {
     position: absolute;
     border: 2px solid black;
+<<<<<<< HEAD
+    padding: 30px 20px;
+=======
     padding: px;
+>>>>>>> 35d6c6b3178791c9f5eebc8440cc63a2c9f12a54
     text-align: center;
     width: 200px;
     height: 60px;

@@ -17,19 +17,11 @@ import { AiFillDelete } from "react-icons/ai";
 const Entertainment = () => {
   const dispatch = useDispatch();
 
-<<<<<<< HEAD
-  var username = useSelector((state) => state.profile.data[0].username);
-
-  // eslint-disable-next-line eqeqeq
-  const isAdmin = username == "admin";
-  // const isAdmin = false;
-=======
 //   var username = useSelector((state) => state.profile.data[0].username);
 
   // // eslint-disable-next-line eqeqeq
   // const isAdmin = username == 'admin'
   const isAdmin = false
->>>>>>> a6ce90a1064caef94273e817232d5322e5ccc53d
 
 //   const isAdmin = username == "admin";
  

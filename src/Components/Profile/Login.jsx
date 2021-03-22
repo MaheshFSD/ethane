@@ -1,62 +1,62 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
-import styled from "styled-components";
-import { IoPersonCircleSharp } from "react-icons/io5";
-import { loginSuccess, loginUser } from "../../Redux/auth/action";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from 'react-router'
+import styled from 'styled-components'
+import { IoPersonCircleSharp } from 'react-icons/io5'
+import { loginSuccess, loginUser } from '../../Redux/auth/action'
+import { Link } from 'react-router-dom'
 const initState = {
-  username: "",
-  password: "",
-};
+  username: '',
+  password: '',
+}
 const Login = () => {
-  const [userLoginData, setUserLoginData] = useState(initState);
-  const { username, password } = userLoginData;
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const dispatch = useDispatch();
+  const [userLoginData, setUserLoginData] = useState(initState)
+  const { username, password } = userLoginData
+  const isAuth = useSelector((state) => state.auth.isAuth)
+  const dispatch = useDispatch()
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (userLoginData.username !== "" && userLoginData.password !== "") {
+    e.preventDefault()
+    if (userLoginData.username !== '' && userLoginData.password !== '') {
       const payload = {
         username: userLoginData.username,
         password: userLoginData.password,
-      };
+      }
 
       dispatch(loginUser(payload)).then((res) => {
         if (!res) {
-          alert("login Success");
+          alert('login Success')
 
           // dispatch(loginSuccess());
         } else if (res) {
-          alert("invalid");
-          console.log(res);
+          alert('invalid')
+          console.log(res)
         }
-      });
+      })
     }
-  };
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserLoginData({ ...userLoginData, [name]: value });
-  };
+    const { name, value } = e.target
+    setUserLoginData({ ...userLoginData, [name]: value })
+  }
   return !isAuth ? (
     <>
       <LOGIN_DIV_CONT>
         <div
           style={{
-            borderRadius: "50%",
-            display: "flex",
-            alignItems: "center",
-            marginTop: "50px",
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: '50px',
           }}
         >
           <IoPersonCircleSharp
             style={{
-              borderRadius: "50%",
-              fontSize: "100px",
-              border: "2px solid #ccc",
-              color: "#303030",
+              borderRadius: '50%',
+              fontSize: '100px',
+              border: '2px solid #ccc',
+              color: '#303030',
             }}
           ></IoPersonCircleSharp>
         </div>
@@ -65,41 +65,41 @@ const Login = () => {
         </div>
         <h5>
           Need A CNN account?
-          <Link to="/registration">Sign Up</Link>
+          <Link to='/registration'>Sign Up</Link>
         </h5>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="username">
+          <label htmlFor='username'>
             Username:
             <input
               onChange={handleChange}
-              type="text"
+              type='text'
               value={username}
-              name="username"
-              placeholder="username"
+              name='username'
+              placeholder='username'
             />
           </label>
 
-          <label htmlFor="password">
+          <label htmlFor='password'>
             Password:
             <input
               onChange={handleChange}
-              type="password"
-              name="password"
+              type='password'
+              name='password'
               value={password}
-              placeholder="password"
+              placeholder='password'
             />
           </label>
 
-          <input type="submit" id="button" value="LOGIN" />
+          <input type='submit' id='button' value='LOGIN' />
         </form>
       </LOGIN_DIV_CONT>
     </>
   ) : (
-    <Redirect to="/profile"></Redirect>
-  );
-};
+    <Redirect to='/profile'></Redirect>
+  )
+}
 
-export { Login };
+export { Login }
 
 const LOGIN_DIV_CONT = styled.div`
   border: 1px solid red;
@@ -171,4 +171,4 @@ const LOGIN_DIV_CONT = styled.div`
       cursor: pointer;
     }
   }
-`;
+`

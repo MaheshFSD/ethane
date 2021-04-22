@@ -159,9 +159,9 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-        <Route>
+        {/* <Route>
           <Error></Error>
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );

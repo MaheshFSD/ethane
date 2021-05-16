@@ -1,7 +1,13 @@
-import React from "react";
-
-const UsPolitics = () => {
-  return <div>Hello Us Politics</div>;
-};
-
-export { UsPolitics };
+import React from 'react'
+const Travel = () => {
+  return (
+    <div>
+      <img
+        src='../coming.png'
+        alt='logo'
+        style={{ width: '100%', height: '100%' }}
+      />
+    </div>
+  )
+}
+export { Travel }

@@ -52,7 +52,8 @@ const Routes = () => {
           <World />
         </Route>
         <Route exact path="/uspolitics">
-          <UsPolitics />
+          <Navbar />
+          <Travel />
         </Route>
 
         <Route exact path="/business">
@@ -87,6 +88,7 @@ const Routes = () => {
           <StylePage />
         </Route>
         <Route exact path="/travel">
+          <Navbar />
           <Travel />
         </Route>
         <Route exact path="/sports">
@@ -96,7 +98,8 @@ const Routes = () => {
           <SportsLinksPage />
         </Route>
         <Route exact path="/videos">
-          <Videos />
+          <Navbar />
+          <Travel />
         </Route>
         <Route exact path="/footer">
           <Footer />
@@ -159,9 +162,9 @@ const Routes = () => {
         <Route path="/registration">
           <Registration></Registration>
         </Route>
-        {/* <Route>
+        <Route>
           <Error></Error>
-        </Route> */}
+        </Route>
       </Switch>
     </div>
   );

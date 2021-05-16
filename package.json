@@ -1,6 +1,6 @@
 {
-  "homepage": "https://maheshfsd.github.io/ethane",
-  "name": "cnn_mahesh",
+  "homepage": "http://maheshfsd.github.io/ethane",
+  "name": "ethane_cnn",
   "version": "0.1.0",
   "private": false,
   "dependencies": {

@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AuthContext } from "../../Context/AuthContext";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { navDropMenu } from "../../Redux/SearchPage/action";
-import logo from "./cnn_logo.png"
 
 
 const links1 = [
@@ -87,7 +86,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.leftmenu}>
         <Link to="/">
-          <img src={logo} alt="logo" />
+          <img src="../cnn_logo.png" alt="logo" />
         </Link>
         {links1.map(({ to, title }) => (
           <Link to={to} key={to}>

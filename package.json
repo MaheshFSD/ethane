@@ -1,5 +1,5 @@
 {
-  "homepage": "https://maheshfsd.github.io/ethane",
+  "homepage": ".",
   "name": "cnn_mahesh",
   "version": "0.1.0",
   "private": false,
@@ -37,7 +37,6 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-    
   },
   "eslintConfig": {
     "extends": [

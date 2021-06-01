@@ -16,6 +16,24 @@ CNN uses a number of open source libraries:
 - [Redux] - awesome web-based text editor
 etc..
 
-## API's
+## Packages Used
 
-CNN uses NewsApi and mockserver for news data.
+- @material-ui/core
+- axios
+- dotenv
+- font-awesome
+- i18next
+- i18next-browser-languagedetector
+- i18next-http-backend
+- netlify
+- pure-react-carousel
+- react-bootstrap
+- react-i18next
+- react-icons
+- react-redux
+- react-router-dom
+- redux
+- redux-thunk
+- styled-components
+- uuid
+  
